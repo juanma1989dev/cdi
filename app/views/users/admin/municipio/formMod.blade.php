@@ -1,8 +1,14 @@
 @extends('layouts/index')
 @section('main')
+
  {{ $errors->first()}}
+ 
 			<h2>Modificar Municipio</h2>
-			{{Form::model($municipioo)}}
+			{{Form::model($municipio)}}
+				<p>
+					{{Form::label('id','ID Municipio')}}
+					{{Form::text('id')}}
+				</p>
 				<p>
 					{{Form::label('nombre','Municipio')}}
 					{{Form::text('nombre')}}

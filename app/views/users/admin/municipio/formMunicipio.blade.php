@@ -47,9 +47,9 @@
 							<td>{{$municipio->nombre}}</td>
 							<td>{{$municipio->ccdi}}</td>
 							<td>{{$municipio->cnch}}</td>
-							<td>{{HTML::link('/users/admin/'.$municipio->id, 'Editar')}}</td>
-							<td>{{HTML::link('/users/admin/'.$municipio->id.'/eliminar','Eliminar', ['class' => 'elimina','data-id'=> $municipio->id])}}</td>
-							</tr>
+							<td>{{HTML::link('/admin/municipio/'.$municipio->id,'Editar')}}</td>
+							<td>{{HTML::link('admin/municipio/'.$municipio->id.'/eliminar','Eliminar', ['class' => 'elimina','data-id'=> $municipio->id])}}</td>
+						</tr>
 						
 					@endforeach
 							

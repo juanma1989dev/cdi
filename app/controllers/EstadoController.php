@@ -82,7 +82,6 @@
 		}
 
 		public function delete($id){
-
 			$estado=Estado::find($id);
 			if($estado->delete()){
 				return Response::json(array( 'status' => 'ok'));

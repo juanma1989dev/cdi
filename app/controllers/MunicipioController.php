@@ -52,12 +52,10 @@
 		public function edit($id)
 		{
 			$municipio = Municipio::find($id);
-			return View::make('users/admin/municipio/formMunicipio',compact('municipio'));
+			return View::make('users/admin/municipio/formMod',compact('municipio'));
 		}
 
-
-
-
+		
 		public function update($id)
 		{
 			$validator = Validator::make(
@@ -69,7 +67,6 @@
 							'nombre'=> 'required',
 							'ccdi' => 'required',
 							'cnch' => 'required'
-							
 							)
 					);
 
@@ -108,3 +105,4 @@
 	}
 		
 ?>
+
