@@ -1,0 +1,66 @@
+@media all and (max-width: 1024px) {
+	#logoCDI { width: 27% };
+	header h1 { 
+		background-color: white;
+		border: 1px solid  red;
+		color: red;
+		text-align: center; 
+		width: 55%;
+	}
+	#dep, #login {
+		display: inline-block;
+		margin: 0 2%;
+		vertical-align: top;
+		position: relative;
+		max-height: 300px;
+		width: 45%;
+	}	
+}
+@media all and (max-width: 768px) {
+	header { 
+		display: block;
+		text-align: center;
+		width: 100%;
+	}
+	#dep { display: none;}
+	#login { 
+		display: block;
+		margin: 0 auto; 
+		width: 70%;
+	}
+	#logoCDI {
+		margin: 0 auto;
+		position: relative;
+		width: 75%;
+	}
+}
+@media all and (max-width: 480px) {
+	#dep { display: none; }
+	#login { 
+		display: block;
+		margin: 0 auto; 
+		width: 85%;
+	}
+	#login form p label {
+		display: none;
+	}
+	#logoCDI {
+		margin: 0 auto;
+		position: relative;
+		width: 75%;
+	}
+} 
+@media all and (max-width: 320px) {  /*- Cambiar despues  -*/
+	
+	/* #dep { display: none; } */ /*--> revisar si tiene sentido esta regla  */
+	#login { 
+		display: block;
+		margin: 0 auto; 
+		width: 92%;
+	}
+	#logoCDI {
+		margin: 0 auto;
+		position: relative;
+		width: 80%;
+	}
+}

@@ -1,0 +1,109 @@
+/* Definicion de las topologias */
+@font-face {
+    font-family: 'soberana';
+    src: url('fonts/soberana/soberanasanscondensed-regular-webfont.eot');
+    src: url('fonts/soberana/soberanasanscondensed-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/soberana/soberanasanscondensed-regular-webfont.woff') format('woff'),
+         url('fonts/soberana/soberanasanscondensed-regular-webfont.ttf') format('truetype'),
+         url('fonts/soberana/soberanasanscondensed-regular-webfont.svg#soberana_sans_condensedRg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+body {
+	background-color: rgb(255,255, 255);
+	font-family: 'soberana';
+	font-size: 16px;
+}
+footer { 
+	text-align: center;
+}
+header { 
+	border-bottom: 1px solid rgba(14, 40, 220, 0.4) ;  
+	margin-bottom: 2em;
+}
+header h1 { vertical-align: middle; }
+h1, h2, h3, h4, h5, h6 { color: rgb(160, 160, 160); }
+h1{ font-size: 28px; }
+h2{ font-size: 24px; }
+h3{ font-size: 22px; }
+h4{ font-size: 18px; }
+h5{ font-size: 14px; }
+h6{ font-size: 10px; }
+#main {
+	display: block;
+	margin-bottom: 4em; 
+	width: 100%;
+} 
+#dep, #login {
+	display: inline-block;
+	vertical-align: top;
+	width: 49%;
+}
+#dep img {
+	height: 100%;
+	margin: auto;
+	max-height: 260px;
+	position: relative;
+	width: 95%;
+}
+#login form p input	{
+	display: block;
+	margin: 0 auto;
+	width: 95%;
+}
+#login form p input	{
+	border: 1px solid (200, 200, 200);
+}
+#login fieldset legend {
+	color: rgb(120, 120, 120);
+	font-size: 22px;
+	border: 1px solid rgb(192, 192, 192);
+	padding: 3px 80px;
+	text-align: center;
+}
+#logoGobiernoR { 
+	display: block;
+	margin: 0 auto;
+	position: relative;
+	width: 250px;
+}
+.btn { 
+	background-color: rgb(27, 143, 91);
+	border: none;
+	color: rgb(250, 250, 250);
+	cursor: pointer;
+}
+#logoCDI, header h1 {
+		display: inline-block;
+		vertical-align: top;
+}
+/* Botones - Inputs - ETC.. */
+
+input {
+	padding: 5px;
+}
+
+/* multiphase capturista*/
+
+
+
+#pas2 ,#pas3 ,#pas4,#pas5,#pas6 ,#pas7,#pas8{
+	display: none;
+}
+
+/* formAlta*/
+
+#formAlta{
+	display: none;
+}
+
+
+/* formEdo*/
+
+#formMuni, #formEdo{
+	display:none;
+}
+
+/**/
+
