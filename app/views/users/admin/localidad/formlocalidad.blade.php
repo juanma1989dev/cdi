@@ -30,7 +30,7 @@
 						<tr>
 							<td>{{$localidad->id}}</td>
 							<td>{{$localidad->nombre}}</td>
-							<td>{{HTML::link('/admin/localidad'.$localidad->id, 'Editar')}}</td>
+							<td>{{HTML::link('/admin/localidad/'.$localidad->id, 'Editar')}}</td>
 							<td>{{HTML::link('/admin/localidad'.$localidad->id.'/eliminar','Eliminar', ['class' => 'elimina','data-id'=> $localidad->id])}}</td>
 						</tr>
 						

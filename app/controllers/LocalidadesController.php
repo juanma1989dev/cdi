@@ -28,7 +28,7 @@
 
 					$localidad = new Localidad(array(
 						'id'     => Input::get('id'),
-						'nombre' => Input::get('localidad'),
+						'nombre' => Input::get('nombre'),
 					));
 
 					if ($localidad->save()) {
@@ -56,7 +56,7 @@
 						array(
 
 							'id'=> 'required',
-							'localidad'=> 'required',
+							'nombre'=> 'required',
 							)
 					);
 
@@ -67,13 +67,13 @@
 
 
 			$localidad = Localidad::find($id);
-			$localidad->nombre=Input::get('localidad');
+			$localidad->nombre=Input::get('nombre');
 			
 			if($localidad->save())
 			{
-				return Redirect::to('/admin/localidad');
+				return Redirect::to('/admin/localidad/');
 			}
-			return 'no se guardo';
+			return 'no se guardo algun cambio';
 		}
 
 

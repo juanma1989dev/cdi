@@ -4,14 +4,14 @@
  {{ $errors->first()}}
  
 			<h2>Modificar Localidad</h2>
-			{{Form::model($municipio)}}
+			{{Form::model($localidad)}}
 				<p>
 					{{Form::label('id','ID Localidad')}}
 					{{Form::text('id')}}
 				</p>
 				<p>
 					{{Form::label('localidad','Localidad')}}
-					{{Form::text('localidad')}}
+					{{Form::text('nombre')}}
 				</p>
 				
 				<p>
