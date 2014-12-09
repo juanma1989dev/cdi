@@ -101,7 +101,7 @@ input {
 
 /* formEdo*/
 
-#formMuni, #formEdo{
+#formMuni, #formEdo, #formLocalidades{
 	display:none;
 }
 

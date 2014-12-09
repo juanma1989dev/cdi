@@ -42,6 +42,13 @@ Route::get('/admin/municipio/{id}',['as' =>'adminMunicipioEdit', 'uses' =>'Munic
 Route::post('/admin/municipio/{id}','MunicipioController@update');
 Route::get('/admin/municipio/{id}/eliminar','MunicipioController@delete');
 
+/* Localidades*/
+Route::get('/admin/localidad','LocalidadesController@create');
+Route::post('/admin/localidad','LocalidadesController@store');
+Route::get('/admin/localidad/{id}',['as' =>'adminLocalidadEdit', 'uses' =>'LocalidadesController@edit']);
+Route::post('/admin/localidad/{id}','LocalidadesController@update');
+Route::get('/admin/localidad/{id}/eliminar','LocalidadesController@delete');
+
 /* Rutas para el usuario Capturistra */
 Route::get('/capturista', 'CapturistaController@index');
 

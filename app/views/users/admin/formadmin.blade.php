@@ -7,6 +7,7 @@
 			<p>{{HTML::link('users/admin','Usuarios')}}</p>
 			<p>{{HTML::link('/admin/municipio','Municipios')}}</p>
 			<p>{{HTML::link('/admin/estado','Estados')}}</p>
+			<p>{{HTML::link('/admin/localidad','Localidades')}}</p>
 		</section>		
 @stop
 

@@ -85,9 +85,6 @@
 
 @section('scripts')
 	{{HTML::script('js/usuarios/usuario.js')}}
-	{{HTML::script('js/usuarios/usuario1.js')}}
-	{{ HTML::script('js/usuarios/eliminar.js') }}
-	
 @stop
 
 @stop
