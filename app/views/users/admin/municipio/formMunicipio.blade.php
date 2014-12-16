@@ -32,6 +32,9 @@
 			{{Form::close()}}
 
 
+
+
+
 			{{HTML::link('#','Agregar localidad',['id'=>'oculta'])}}
 
 

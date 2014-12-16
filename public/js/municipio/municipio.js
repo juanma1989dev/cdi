@@ -1,6 +1,4 @@
 $(document).on('ready', function(){
-
-
 			$('#formMuni').on('submit', function(e){
 					e.preventDefault();
 
@@ -17,15 +15,12 @@ $(document).on('ready', function(){
 					data: municipio,
 					dataType: 'json',
 					success: function(municipio){
-
 						console.log(municipio);
 						var info = $('.info');
 						info.hide().empty();
 						if(!municipio.success){
-
 							info.append('<li>'+ $(municipio.errors).toArray()[0] +'</li>');
 							info.slideDown();
-
 						}else{
 							info.find('ul').append('<li>Agregado correctamente</li>');
 							info.slideDown();
@@ -47,7 +42,8 @@ $(document).on('ready', function(){
 
 			});
 				
-				$("#oculta").on('click',function(e){
+				
+					$("#oculta").on('click',function(e){
 							e.preventDefault();
 							$('#formMuni').slideDown('fast');
 							$('#oculta').hide();
@@ -58,7 +54,7 @@ $(document).on('ready', function(){
 						$('#formMuni').hide('fast');
 						$('#oculta').slideDown('fast');
 					});
-	
+					
 
 				$('#tablaMunicipio').on('click', '.elimina', function(e){
 						e.preventDefault();

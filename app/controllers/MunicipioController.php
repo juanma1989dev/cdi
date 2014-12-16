@@ -37,7 +37,7 @@
 
 					if ($municipio->save()) {
 						$municipio = Municipio::find(Input::get('id'));
-						$municipio->estados()->attach(34);
+						$municipio->estados()->attach(78);
 						return Response::json(array('success' => true, 'municipio'=> $municipio));
 					}
 				}
