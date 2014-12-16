@@ -26,15 +26,17 @@
 						'errors'=>$validator->errors()->toArray()]);
 				}else{	
 
-					$accion = Accion::create(array(
-						'id' => Input::get('id'),
-						'nombre' => Input::get('nombre'),
-						));
+					$accion = new Accion;
+					$accion->id = Input::get('id');
+					$accion->nombre = Input::get('nombre');
 
-					if ($accion)
+					if ($accion->save())
 					{
+						$accion = $accion->find(Input::get('id'));
 						return Response::json(array('success' => true, 'accion'=> $accion));
 					}
+
+
 				}
 				
 			}
