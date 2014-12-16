@@ -20,7 +20,7 @@
 
 
 
-		{{HTML::link('#','Agregar Estado',['id'=>'estado'])}}
+		{{HTML::link('#','Agregar Estado',['id'=>'oculta'])}}
 
 
 
@@ -45,7 +45,7 @@
 					<td>@{{id}}</td>
 					<td>@{{nombre}}</td>
 					<td><a href="@{{urlEdit}}">Editar</a></td>
-					<td><a href="#" data-id='@{{id}}' class="elimina">Elimina</a></td>
+					<td><a href="#" data-id='@{{id}}' class="elimina">Eliminar</a></td>
 				</tr>
 				
 			</template>
@@ -54,7 +54,7 @@
 
 		@stop
 @section('scripts')
-	
 	{{HTML::script('js/estados/estado.js')}}
+	
 @stop
 

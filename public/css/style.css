@@ -92,18 +92,7 @@ input {
 	display: none;
 }
 
-/* formAlta*/
-
-#formAlta{
-	display: none;
-}
-
-
-/* formEdo*/
-
-#formMuni, #formEdo, #formLocalidades{
+#formAlta, #formMuni, #formEdo , #formLocalidades, #formAccion{
 	display:none;
 }
-
-/**/
 

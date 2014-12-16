@@ -1,12 +1,11 @@
 $(document).on('ready', function(){
 
-
-			$('#formLocalidades').on('submit', function(e){
+$('#formLocalidades').on('submit', function(e){
 				e.preventDefault();
 
 				var localidad = {
 					id:      $('#id').val(),
-					localidad : $('#localidad').val(),
+					nombre : $('#nombre').val(),
 				    };
 
 				$.ajax({
@@ -35,7 +34,8 @@ $(document).on('ready', function(){
 							var render = Mustache.render(template,localidad.localidad);
 							$('#tablaLocalidad').prepend(render);
 							$('#id').val('');
-							$('#localidad').val('');
+							$('#nombre').val('');
+							$('#formLocalidades').slideUp();
 					     }
 					 },
 					error:function (error){
@@ -43,8 +43,9 @@ $(document).on('ready', function(){
 				});
 
 			});
+					
 
-			$("#oculta").on('click',function(e){
+				$("#oculta").on('click',function(e){
 					e.preventDefault();
 					$('#formLocalidades').slideDown('fast');
 					$('#oculta').hide();
@@ -52,9 +53,11 @@ $(document).on('ready', function(){
 
 			$('#cancela').on('click',function(e){
 				e.preventDefault();
-				$('#formLocalidades').slideUp('fast');
+				$('#formLocalidades').hide('fast');
 				$('#oculta').slideDown('fast');
-			})
+			});
+
+			
 
 
 				$('#tablaLocalidad').on('click', '.elimina', function(e){
@@ -78,9 +81,5 @@ $(document).on('ready', function(){
 									}
 								});
 							}
-
-
-					});
-
-
-		});
+					   });
+				});

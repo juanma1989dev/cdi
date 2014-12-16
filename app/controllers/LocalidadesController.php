@@ -15,7 +15,7 @@
 					,
 					array(
 							'id' 	=> 'required',
-							'localidad'=> 'required',
+							'nombre'=> 'required',
 							
 						)
 				);	

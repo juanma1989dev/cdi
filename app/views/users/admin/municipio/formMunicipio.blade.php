@@ -66,11 +66,10 @@
 				</template>
 
 {{HTML::link('/admin','Regresar al panel')}}
-
-@section('scripts')
-	{{HTML::script('js/municipio/municipio.js')}}	
 @stop
 
+@section('scripts')
+	{{HTML::script('js/municipio/municipio.js')}}
 @stop
 
 

@@ -8,7 +8,6 @@
 		public function create()
 		{
 			$estados = Estado::orderBy('id','DESC')->get();
-
 			return View::make('users/admin/estado/formEstado',compact('estados'));
 		}
 
@@ -20,7 +19,7 @@
 						Input::all()
 					,
 					array(
-							'id'=> 'required|integer',
+							'id'=> 'required',
 							'nombre'=> 'required',
 						)
 				);	

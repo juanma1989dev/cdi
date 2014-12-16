@@ -18,7 +18,7 @@ Route::post('/login', ['as' => 'login', 'uses' => 'LoginController@login']);
 Route::get('/admin', 'AdminController@index');
 Route::get('/admin/usuarios', 'UsuariosController@index');
 
-/* Usuarios */
+/*Rutas para Usuarios */
 Route::post('/login', 'LoginController@login');
 Route::get('/capturista','CapturistaController@create');
 Route::get('/admin','AdminUsuarioController@admin');
@@ -28,26 +28,33 @@ Route::get('/users/admin/{id}',['as' =>'adminUserEdit', 'uses' =>'AdminUsuarioCo
 Route::post('/users/admin/{id}','AdminUsuarioController@update');//actualizo usuarios
 Route::get('/users/admin/{id}/eliminar','AdminUsuarioController@delete');//Elimino usuarios
 
-/* Estados */
+/*Rutas para Estados */
 Route::get('/admin/estado','EstadoController@create');
 Route::post('/admin/estado','EstadoController@store');
 Route::get('/admin/estado/{id}',['as' =>'adminEstadoEdit', 'uses' =>'EstadoController@edit']);
 Route::post('/admin/estado/{id}','EstadoController@update');
 Route::get('/admin/estado/{id}/eliminar','EstadoController@delete');
 
-/* Municipios */
+/*Rutas para Municipios */
 Route::get('/admin/municipio','MunicipioController@create');
 Route::post('/admin/municipio','MunicipioController@store');
 Route::get('/admin/municipio/{id}',['as' =>'adminMunicipioEdit', 'uses' =>'MunicipioController@edit']);
 Route::post('/admin/municipio/{id}','MunicipioController@update');
 Route::get('/admin/municipio/{id}/eliminar','MunicipioController@delete');
 
-/* Localidades*/
+/* Rutas para Localidades*/
 Route::get('/admin/localidad','LocalidadesController@create');
 Route::post('/admin/localidad','LocalidadesController@store');
 Route::get('/admin/localidad/{id}',['as' =>'adminLocalidadEdit', 'uses' =>'LocalidadesController@edit']);
 Route::post('/admin/localidad/{id}','LocalidadesController@update');
 Route::get('/admin/localidad/{id}/eliminar','LocalidadesController@delete');
+
+/* Rutas para Acciones*/
+Route::get('/admin/acciones','AccionesController@create');
+Route::post('/admin/acciones','AccionesController@store');
+Route::get('/admin/acciones/{id}',['as' =>'adminAccionEdit', 'uses' =>'AccionesController@edit']);
+Route::post('/admin/acciones/{id}','AccionesController@update');
+Route::get('/admin/acciones/{id}/eliminar','AccionesController@delete');
 
 /* Rutas para el usuario Capturistra */
 Route::get('/capturista', 'CapturistaController@index');
@@ -57,6 +64,7 @@ Route::post('/capturista/capturaProyecto', 'CapturistaController@crea');
 
 /* Rutas para el Super-Usuario */
 Route::get('/superUsuario', 'SuperUsuarioController@index');
+
 
 
 

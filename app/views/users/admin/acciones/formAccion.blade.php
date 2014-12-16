@@ -1,15 +1,15 @@
 @extends('layouts/index')
 @section('main')
 	
-	<h2>Agregar Localidades</h2>
+	<h2>Agregar Accion</h2>
 			<ul class="info"></ul>
-		{{Form::open(['id'=>'formLocalidades']) }}
+		{{Form::open(['id'=>'formAccion']) }}
 				<p>
 					{{Form::label('id','ingresa el id')}}
 					{{Form::text('id')}}
 				</p>
 				<p>
-					{{Form::label('nombre','Ingresa la localidad')}}
+					{{Form::label('nombre','Ingresa la accion')}}
 					{{Form::text('nombre')}}
 				</p>
 				<p>
@@ -20,24 +20,24 @@
 				</p>
 		{{Form::close()}}
 
-			{{HTML::link('#','Agregar Localidad',['id'=>'oculta'])}}
+			{{HTML::link('#','Agregar Accion',['id'=>'oculta'])}}
 
-			<h2>Visualizar localidades</h2>
+			<h2>Visualizar Acciones</h2>
 	
-				<table border="2" id="tablaLocalidad">
+				<table border="2" id="tablaAccion">
 
-				@foreach ($localidades as $localidad ) 
+				@foreach ($acciones as $accion ) 
 						<tr>
-							<td>{{$localidad->id}}</td>
-							<td>{{$localidad->nombre}}</td>
-							<td>{{HTML::link('/admin/localidad/'.$localidad->id, 'Editar')}}</td>
-							<td>{{HTML::link('/admin/localidad'.$localidad->id.'/eliminar','Eliminar', ['class' => 'elimina','data-id'=> $localidad->id])}}</td>
+							<td>{{$accion->id}}</td>
+							<td>{{$accion->nombre}}</td>
+							<td>{{HTML::link('/admin/acciones/'.$accion->id, 'Editar')}}</td>
+							<td>{{HTML::link('/admin/acciones'.$accion->id.'/eliminar','Eliminar', ['class' => 'elimina','data-id'=> $accion->id])}}</td>
 						</tr>
 						
 					@endforeach
 							
 				</table>
-				<template id='filaLocalidad-template'>
+				<template id='filAccion-template'>
 					<tr>
 						<td>@{{id}}</td>
 						<td>@{{nombre}}</td>
@@ -51,6 +51,8 @@
 @stop
 
 @section('scripts')
-	{{HTML::script('js/localidad/localidad.js')}}
+	{{HTML::script('js/acciones/accion.js')}}	
 @stop
+
+
 

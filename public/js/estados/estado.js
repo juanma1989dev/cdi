@@ -1,11 +1,9 @@
 $(document).on('ready', function(){
-
-
 			$('#formEdo').on('submit', function(e){
 				e.preventDefault();
 
 				var estado = {
-					id : $('#id').val(),
+					id :    $('#id').val(),
 				    nombre: $('#nombre').val(),
 				};
 
@@ -24,16 +22,14 @@ $(document).on('ready', function(){
 						}else{
 							info.find('ul').append('<li>Agregado correctamente</li>');
 							info.slideDown();
-
-							estado.estado.urlEdit = App.Helpers.urlBase + '/admin/estado'+ estado.estado.id; 
-
+							estado.estado.urlEdit = App.Helpers.urlBase + '/admin/estado'+ estado.estado.$id; 
 							var template=$('#filaEstado-template').html();
 							Mustache.parse(template);
 							var render = Mustache.render(template,estado.estado);
 							$('#tablaEstado').prepend(render);
-
 							$('#id').val('');
 					     	$('#nombre').val('');
+					     	$('#formEdo').slideUp();
 					   	}
 					 },
 					error:function (error){
@@ -42,7 +38,8 @@ $(document).on('ready', function(){
 
 			});
 
-				$("#estado").on('click',function(e){
+				
+			$("#oculta").on('click',function(e){
 					e.preventDefault();
 					$('#formEdo').slideDown('fast');
 					$('#estado').hide();
@@ -54,7 +51,7 @@ $(document).on('ready', function(){
 					$('#estado').slideDown('fast');
 				});
 
-
+				
 
 
 					$('#tablaEstado').on('click', '.elimina', function(e){
@@ -79,9 +76,5 @@ $(document).on('ready', function(){
 								});
 							}
 
-	});
-
-
-
-
-		});
+						});
+					});
