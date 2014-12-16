@@ -36,6 +36,7 @@ $('#formLocalidades').on('submit', function(e){
 							$('#id').val('');
 							$('#nombre').val('');
 							$('#formLocalidades').slideUp();
+							$('#oculta').slideDown();
 					     }
 					 },
 					error:function (error){

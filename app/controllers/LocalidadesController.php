@@ -33,7 +33,7 @@
 
 					if ($localidad->save()) {
 						$localidad = Localidad::find(Input::get('id'));
-						$localidad->municipios()->attach(53); // Cambiar por el id de la lista de municipios
+						$localidad->municipios()->attach(66); // Cambiar por el id de la lista de municipios
 						return Response::json(array('success' => true, 'localidad'=> $localidad));
 					}
 				}

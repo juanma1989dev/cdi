@@ -29,7 +29,6 @@
 		<table border="2" id="tablaEstado">
 
 			@foreach($estados as $estado)
-
 				<tr>
 					<td>{{$estado->id}}</td>
 					<td>{{$estado->nombre}}</td>
@@ -37,7 +36,6 @@
 					<td>{{HTML::link('/admin/estado/'.$estado->id.'/eliminar','Eliminar',['class'=>'elimina','data-id'=> $estado->id])}}</td>
 				</tr>
 			@endforeach
-			
 		</table>
 
 			<template id='filaEstado-template'>

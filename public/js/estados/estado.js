@@ -22,7 +22,7 @@ $(document).on('ready', function(){
 						}else{
 							info.find('ul').append('<li>Agregado correctamente</li>');
 							info.slideDown();
-							estado.estado.urlEdit = App.Helpers.urlBase + '/admin/estado'+ estado.estado.$id; 
+							estado.estado.urlEdit = App.Helpers.urlBase + '/admin/estado'+ estado.estado.id; 
 							var template=$('#filaEstado-template').html();
 							Mustache.parse(template);
 							var render = Mustache.render(template,estado.estado);
@@ -30,6 +30,7 @@ $(document).on('ready', function(){
 							$('#id').val('');
 					     	$('#nombre').val('');
 					     	$('#formEdo').slideUp();
+					     	$('#oculta').slideDown();
 					   	}
 					 },
 					error:function (error){
@@ -42,13 +43,14 @@ $(document).on('ready', function(){
 			$("#oculta").on('click',function(e){
 					e.preventDefault();
 					$('#formEdo').slideDown('fast');
-					$('#estado').hide();
+					$('#oculta').hide();
 				});
 
 				$('#cancela').on('click',function(e){
 					e.preventDefault();
 					$('#formEdo').slideUp('fast');
-					$('#estado').slideDown('fast');
+					$('#oculta').slideDown('fast');
+
 				});
 
 				

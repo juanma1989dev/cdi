@@ -34,6 +34,7 @@ $(document).on('ready', function(){
 					     	$('#ccdi').val('');
 					     	$('#cnch').val('');
 						    $('#formMuni').slideUp();
+						    $('#oculta').slideDown();
 						}
 					 },
 					error:function (error){

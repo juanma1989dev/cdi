@@ -35,6 +35,7 @@ $(document).on('ready', function(){
 								$('#id').val('');
 						     	$('#nombre').val('');
 						     	$('#formAccion').slideUp();
+						     	$('#oculta').slideDown();
 						   	}
 					 },
 					error:function (error){
