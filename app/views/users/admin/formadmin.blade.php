@@ -9,6 +9,10 @@
 			<p>{{HTML::link('/admin/estado','Estados')}}</p>
 			<p>{{HTML::link('/admin/localidad','Localidades')}}</p>
 			<p>{{HTML::link('/admin/acciones','Acciones')}}</p>
+			<p>{{HTML::link('/admin/carencias/','Carencias')}}</p>
+			<p>{{HTML::link('/admin/dependencias','Depedencias')}}</p>
+			<p>{{HTML::link('/admin/lenguas','Lenguas')}}</p>
+			<p>{{HTML::link('/admin/programas','Programas')}}</p>
 		</section>		
 @stop
 

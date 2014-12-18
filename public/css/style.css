@@ -92,7 +92,7 @@ input {
 	display: none;
 }
 
-#formAlta, #formMuni , #formEdo , #formLocalidades , #formAccion{
+#formAlta, #formMuni , #formEdo , #formLocalidades , #formAccion, #formCarencia, #formDependencia, #formLengua, #formPrograma{
 	display:none;
 }
 

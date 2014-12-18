@@ -56,6 +56,38 @@ Route::get('/admin/acciones/{id}',['as' =>'adminAccionEdit', 'uses' =>'AccionesC
 Route::post('/admin/acciones/{id}','AccionesController@update');
 Route::get('/admin/acciones/{id}/eliminar','AccionesController@delete');
 
+/* Rutas para Catalogo de Carencias*/
+Route::get('/admin/carencias','CarenciaController@create');
+Route::post('/admin/carencias','CarenciaController@store');
+Route::get('/admin/carencias/{id}',['as' =>'adminCarenciaEdit', 'uses' =>'CarenciaController@edit']);
+Route::post('/admin/carencias/{id}','CarenciaController@update');
+Route::get('/admin/carencias/{id}/eliminar','CarenciaController@delete');
+
+/* Rutas para Catalogo de Dependencias */
+
+Route::get('/admin/dependencias','DependenciaController@create');
+Route::post('/admin/dependencias','DependenciaController@store');
+Route::get('/admin/dependencias/{id}',['as' =>'adminDependenciaEdit', 'uses' =>'DependenciaController@edit']);
+Route::post('/admin/dependencias/{id}','DependenciaController@update');
+Route::get('/admin/dependencias/{id}/eliminar','DependenciaController@delete');
+
+/* Rutas para Catalogo de Lenguas */
+
+Route::get('/admin/lenguas','LenguaController@create');
+Route::post('/admin/lenguas','LenguaController@store');
+Route::get('/admin/lenguas/{id}',['as' =>'adminLenguaEdit', 'uses' =>'LenguaController@edit']);
+Route::post('/admin/lenguas/{id}','LenguaController@update');
+Route::get('/admin/lenguas/{id}/eliminar','LenguaController@delete');
+
+/* Rutas para catalogo de Programas */
+
+Route::get('/admin/programas','ProgramasController@create');
+Route::post('/admin/programas','ProgramasController@store');
+Route::get('/admin/programas/{id}',['as' =>'adminProgramaEdit', 'uses' =>'ProgramasController@edit']);
+Route::post('/admin/programas/{id}','ProgramasController@update');
+Route::get('/admin/programas/{id}/eliminar','ProgramasController@delete');
+
+
 /* Rutas para el usuario Capturistra */
 Route::get('/capturista', 'CapturistaController@index');
 
