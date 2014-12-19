@@ -20,6 +20,9 @@
 					<p>
 						<input type="submit" value="Ingresar" class="btn">					
 					</p>
+					<p>
+						<center>{{ HTML::link('/recuperarPassword', 'Recuperar Contraseña') }}</center>
+					</p>
 				{{ Form::close() }}
 			</fieldset>			
 		</section>

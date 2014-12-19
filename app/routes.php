@@ -10,7 +10,7 @@
 Route::get('/', function() {
 	return View::make('index');
 });
-
+Route::get('/recuperarPassword', 'RecuperarPasswordController@index');
 /* Login y Logout  */
 Route::post('/login', ['as' => 'login', 'uses' => 'LoginController@login']);
 

@@ -12,6 +12,10 @@
 
 		public function crea(){
 
+			$p = Proyecto::$rules;
+
+			dd($p);
+
 			extract(Input::all());
 
 			$estado = Estado::find(1); // Cambiar por la variable del estado 

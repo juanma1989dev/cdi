@@ -3,7 +3,7 @@
 	{
 		public function proyectos()
 		{
-				return View::make('/admin/proyectos/formProyect');
+			return View::make('/admin/proyectos/formProyect');
 		}
 
 	}
