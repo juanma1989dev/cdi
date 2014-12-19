@@ -87,6 +87,29 @@ Route::get('/admin/programas/{id}',['as' =>'adminProgramaEdit', 'uses' =>'Progra
 Route::post('/admin/programas/{id}','ProgramasController@update');
 Route::get('/admin/programas/{id}/eliminar','ProgramasController@delete');
 
+/* Rutas para catalogo de Ubicaciones  */
+
+Route::get('/admin/ubicaciones','UbicacionesController@create');
+Route::post('/admin/ubicaciones','UbicacionesController@store');
+Route::get('/admin/ubicaciones/{id}',['as' =>'adminUbicacionEdit', 'uses' =>'UbicacionesController@edit']);
+Route::post('/admin/ubicaciones/{id}','UbicacionesController@update');
+Route::get('/admin/ubicaciones/{id}/eliminar','UbicacionesController@delete');
+
+/* Rutas para catalogo de RegionesIndigenas */
+
+Route::get('/admin/regionindigena','RegIndigenaController@create');
+Route::post('/admin/regionindigena','RegIndigenaController@store');
+Route::get('/admin/regionindigena/{id}',['as' =>'adminRegIndinEdit', 'uses' =>'RegIndigenaController@edit']);
+Route::post('/admin/regionindigena/{id}','RegIndigenaController@update');
+Route::get('/admin/regionindigena/{id}/eliminar','RegIndigenaController@delete');
+
+/* Rutas para catalogo de Regiones Oaxaca  */
+
+Route::get('/admin/regionoaxaca','RegionoaxController@create');
+Route::post('/admin/regionoaxaca','RegionoaxController@store');
+Route::get('/admin/regionoaxaca/{id}',['as' =>'adminRegOaxacaEdit', 'uses' =>'RegionoaxController@edit']);
+Route::post('/admin/regionoaxaca/{id}','RegionoaxController@update');
+Route::get('/admin/regionoaxaca/{id}/eliminar','RegionoaxController@delete');
 
 /* Rutas para el usuario Capturistra */
 Route::get('/capturista', 'CapturistaController@index');

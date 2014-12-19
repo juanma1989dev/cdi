@@ -13,6 +13,9 @@
 			<p>{{HTML::link('/admin/dependencias','Depedencias')}}</p>
 			<p>{{HTML::link('/admin/lenguas','Lenguas')}}</p>
 			<p>{{HTML::link('/admin/programas','Programas')}}</p>
+			<p>{{HTML::link('/admin/ubicaciones','Ubicaciones')}}</p>
+			<p>{{HTML::link('/admin/regionindigena','Region Indigena')}}</p>
+			<p>{{HTML::link('/admin/regionoaxaca','Region Oaxaqa')}}</p>
 		</section>		
 @stop
 
