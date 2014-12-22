@@ -1,88 +1,83 @@
 $(document).on('ready', function(){
+		var helper = new App.Helpers();
 
-		$('#formAlta').on('submit', function(e){
-						e.preventDefault();
+		$('#formUserAdmin').on('submit', function(e){
+			e.preventDefault();
+			var usuario =  $('#formUserAdmin').serialize();
 
-						var usuario = {
-							nombres :     $('#nombres').val(),
-						    apellidoM :   $('#apellidoM').val(),
-						    apellidoP :   $('#apellidoP').val(),
-						    usuario :     $('#usuario').val(),
-						    contrasenia : $('#contrasenia').val(),
-						    nivel :       $('#nivel').val()
-						};
+			var response = $.ajax({
+				type : 'POST',
+				url : helper.urlBase() + '/users/admin',
+				data: usuario,
+				dataType: 'json',
+				success: function(data){
+					var info = $('.info');
+					info.hide().empty();
 
-						$.ajax({
-							type : 'POST',
-							url : App.Helpers.urlBase + '/users/admin',
-							data: usuario,
-							dataType: 'json',
-							success: function(usuario){
-								console.log(usuario);
-								var info = $('.info');
-								info.hide().empty();
-								if(!usuario.success){
-									info.append('<li>'+ $(usuario.errors).toArray()[0] +'</li>');
-									info.slideDown();	
-								}else{
-									info.find('ul').append('<li>Agregado correctamente</li>');
-									info.slideDown();
+					if(!data.success){
+						info.append('<li>'+ data.errors[Object.keys(data.errors)[0]] +'</li>');
+						info.slideDown();	
+					}else{
+						info.append('<li>Agregado correctamente</li>');
+						info.slideDown();
 
-									usuario.usuario.urlEdit = App.Helpers.urlBase + '/users/admin/'+ usuario.usuario.id; 
+						data.usuario.urlEdit = helper.urlBase() + '/users/admin/'+ data.usuario.id; 
 
-									var template=$('#filaUsuario-template').html();
-									Mustache.parse(template);
-									var render = Mustache.render(template,usuario.usuario);
-									$('#tablaUsuarios').prepend(render);
-									$('#nombres').val('');
-							     	$('#apellidoM').val('');
-							     	$('#apellidoP').val('');
-								    $('#usuario').val('');
-								    $('#contrasenia').val('');
-								    $('#nivel').val('');
-								    $('#formAlta').slideUp();
-								}
-							 },
-							error:function (error){
-							}
-						});
+						var template=$('#filaUsuario-template').html();
+						Mustache.parse(template);
+						var render = Mustache.render(template,data.usuario);
 
-					});
+						$('#tablaUsuarios').prepend(render);
+
+						helper.cleanForm('#formUserAdmin');
+
+						$("#formUserAdmin").slideUp();
+						$('#agregarUsuario').show();
+					}
+				 },
+				error:function (error){
+				}
+			});
+
+			console.log(response);
+
+		});
 					
-					$("#oculta").on('click',function(e){
-							e.preventDefault();
-							$('#formAlta').slideDown('fast');
-							$('#oculta').hide();
-						});
+		$("#agregarUsuario").on('click',function(e){
+			e.preventDefault();
+			$('#formUserAdmin').slideDown();
+			$('#agregarUsuario').hide();
+		});
 
-					$('#cancela').on('click',function(e){
-						e.preventDefault();
-						$('#formAlta').hide('fast');
-						$('#oculta').slideDown('fast');
-					});
+		$('#cancelarUsuario').on('click',function(e){
+			e.preventDefault();
+			helper.cleanForm('#formUserAdmin');
+			$('#formUserAdmin').slideUp();
+			$('#agregarUsuario').show();
+		});
 					
 
-					$('#tablaUsuarios').on('click','.elimina', function(e){
-							e.preventDefault();
+		$('#tablaUsuarios').on('click','.elimina', function(e){
+			e.preventDefault();
 
-							var id = $(this).attr('data-id'),
-								rowUser = $(this),
-								respuesta = confirm('Realmente decea eliminar el usuario');
+			var id = $(this).attr('data-id'),
+				rowUser = $(this),
+				respuesta = confirm('Realmente decea eliminar el usuario');
 
-								if( respuesta ){
-									$.ajax({
-										type:'GET',
-										url: App.Helpers.urlBase +'/users/admin/'+id+'/eliminar',
-										data : {},
-										dataType:'json',
-										success:function(data){
-											rowUser.closest('tr').remove();
-										},
-										error: function(error){
+			if( respuesta ){
+				$.ajax({
+					type:'GET',
+					url: helper.urlBase() +'/users/admin/'+id+'/eliminar',
+					data : {},
+					dataType:'json',
+					success:function(data){
+						rowUser.closest('tr').remove();
+					},
+					error: function(error){
 
-										}
-									});
-								}
-							});
+					}
+				});
+			}
+		});
 
 	});

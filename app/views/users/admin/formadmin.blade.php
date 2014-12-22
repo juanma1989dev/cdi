@@ -15,9 +15,8 @@
 			<p>{{HTML::link('/admin/programas','Programas')}}</p>
 			<p>{{HTML::link('/admin/ubicaciones','Ubicaciones')}}</p>
 			<p>{{HTML::link('/admin/regionindigena','Region Indigena')}}</p>
-			<p>{{HTML::link('/admin/regionoaxaca','Region Oaxaqa')}}</p>
+			<p>{{HTML::link('/admin/regionoaxaca','Region Oaxaa')}}</p>
 		</section>		
 @stop
-
 
 

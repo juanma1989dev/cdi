@@ -23,46 +23,18 @@
 		</p>
 		<img src="{{ asset('images/logoGobiernoR.png') }}" id="logoGobiernoR">
 	</footer>
-	{{ HTML::script('js/jquery-1.11.1.js') }}
-	{{HTML::script('js/mustache.js')}}
 	<script>
 	 	window.App = {};
-	 	App.Helpers ={};
-		App.Helpers.urlBase = "{{ URL::to('') }}";
-
-
-		
-		App.Helpers.cleanform = function (form){
-			var checkboxs = $(form).children('input[type = "checkbox"]'),
-				radios = $(form).children('input[type="radio"]'),
-				selects = $(form).children('select'),
-				textareas = $(form).children('textarea'),
-				texts = $(form).children('input[type="text"]');
-
-
-				checkboxs.each(function(i, el ){
-					el.checked=false;
-				});
-
-				radios.each(function(i, el ){
-					el.checked=false;
-				});
-
-				selects.each(function(i, el ){
-					el.selectedIndex=0;
-				});
-				
-				texts.each(function(i, el ){
-					el.value="";
-				});
-
-				textareas.each(function(i, el ){
-					el.value="";
-				});
-		}
-
-
+	 	App.Helpers = {};
+	 	App.Controllers = {};
 	</script>
+	
+	{{ HTML::script('js/jquery-1.11.1.js') }}
+	{{HTML::script('js/mustache.js')}}
+	{{ HTML::script('js/Helpers.js') }}
+	{{ HTML::script('js/usuarios/UsuarioController.js') }}
+	
 	@yield('scripts')
+	
 </body> 
 </html>

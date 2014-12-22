@@ -92,7 +92,12 @@ input {
 	display: none;
 }
 
-#formAlta, #formMuni , #formEdo , #formLocalidades , #formAccion, #formCarencia, #formDependencia, #formLengua, #formPrograma,#formUbicaciones,#formIndigena, #formRegOax{
+#formUserAdmin, #formMuni,
+#formEdo, #formLocalidades,
+#formAccion, #formCarencia,
+#formDependencia, #formLengua, 
+#formPrograma,#formUbicaciones,
+#formIndigena, #formRegOax {
 	display:none;
 }
 
