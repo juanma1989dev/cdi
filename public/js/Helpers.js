@@ -1,10 +1,13 @@
-(function( ){	
+(function( m ){	
 
 	App.Helpers = function() {
 
-		this.render = function(template, elemRender) {
-			$.get('templates/'+ template +'.html', function(temp) {
-				$(elemRender).append( temp );				
+		this.render = function(template, elemRender, data) {
+			var baseUrl = this.urlBase() + '/js/templates/';
+			$.get(baseUrl + template +'.mustache', function(temp) {
+				m.parse(temp);
+				var render = m.render(temp, data);
+				$(elemRender).prepend(render).fadeIn();
 			});
 		};
 
@@ -24,7 +27,7 @@
 			xhr.done(function(data){
 				response = data;
 			}).fail(function(error){
-				response = data;
+				response = error;
 			});
 
 			return response;
@@ -69,4 +72,4 @@
 
 	} 
 
-})();
+})( Mustache );

@@ -3,7 +3,7 @@
 	App.Views.User = function() {
 		
 		this.addUser = function() {
-			$('#formUserAdmin').on('submit', this.processForm );
+			$('#formUserAdmin').on('submit',  { self: this}, this.processForm );
 		};
 
 		this.deleteUser = function() {
@@ -12,7 +12,30 @@
 
 		this.processForm = function(e) {
 			e.preventDefault();
-			user.create( $(this).serialize() );
+
+			var self = e.data.self,
+				r = user.create( $(this).serialize() );
+
+			if(r.success){
+				self.addRowUser(r.usuario);
+			}else{
+				$('.info').append('<li>'+ r.errors[Object.keys(r.errors)[0]] +'</li>').slideDown();	
+			}
+		};
+
+		this.addRowUser = function(data){
+			var info = $('.info');
+
+			info.empty()
+				.append('<li>Agregado correctamente</li>')
+				.slideDown();
+
+
+			helper.render('rowUserAdmin', '#tablaUsuarios', data);
+			helper.cleanForm('#formUserAdmin');
+
+			$("#formUserAdmin").slideUp();
+			$('#agregarUsuario').show();
 		};
 
 		this.removeUser = function(e) {
@@ -21,8 +44,8 @@
 			var row = $(this)
 			
 			if(respuesta) { 
-				var a = user.delete($(this).attr('data-id'));
-				if(a.status == 'ok'){
+				var r = user.delete($(this).attr('data-id'));
+				if( r.success ){
 					row.closest ('tr').remove ();
 				}
 			}

@@ -2,8 +2,14 @@
 
 	App.Controllers.User = function() {
 
-		this.create = function(u){
-			user.getData(u);
+		this.create = function(u) {
+			var a= user.store(u);
+
+			if( a.succses ){
+				a.usuarios.urlEdit = helper.urlBase() + '/users/admin/'+ data.id; 
+			}
+
+			return a;
 		};
 
 		this.delete = function(id) {
@@ -11,13 +17,13 @@
 		};
 	}
 					
-	$("#agregarUsuario").on('click',function(e){
+	$("#agregarUsuario").on('click',function(e) {
 		e.preventDefault();
 		$('#formUserAdmin').slideDown();
 		$('#agregarUsuario').hide();
 	});
 
-	$('#cancelarUsuario').on('click',function(e){
+	$('#cancelarUsuario').on('click',function(e) {
 		e.preventDefault();
 		helper.cleanForm('#formUserAdmin');
 		$('#formUserAdmin').slideUp();

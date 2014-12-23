@@ -104,7 +104,7 @@
 
 			$usuario=User::find($id);
 			if($usuario->delete()){
-				return Response::json(array( 'status' => 'ok'));
+				return Response::json(array( 'success' => true ));
 			}
 		}
 	}

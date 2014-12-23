@@ -61,17 +61,6 @@
 		@endforeach
 				
 	</table>
-	<template id='filaUsuario-template'>
-		<tr>
-			<td>@{{nombres}}</td>
-			<td>@{{apellidoM}}</td>
-			<td>@{{apellidoP}}</td>
-			<td>@{{usuario}}</td>
-			<td>@{{nivel}}</td>
-			<td><a href="@{{urlEdit}}">Editar</a></td>					
-			<td><a href="#"  data-id="@{{id}}" class="elimina">Eliminar</a></td>					
-		</tr>
-	</template>
 
 {{HTML::link('/admin','Regresar al panel')}}
 @stop
