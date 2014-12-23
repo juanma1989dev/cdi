@@ -106,11 +106,6 @@
 			if($usuario->delete()){
 				return Response::json(array( 'status' => 'ok'));
 			}
-
-
-
-
-
 		}
 	}
 ?>

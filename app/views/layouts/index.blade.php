@@ -24,15 +24,26 @@
 		<img src="{{ asset('images/logoGobiernoR.png') }}" id="logoGobiernoR">
 	</footer>
 	<script>
-	 	window.App = {};
-	 	App.Helpers = {};
-	 	App.Controllers = {};
+	 	
 	</script>
 	
-	{{ HTML::script('js/jquery-1.11.1.js') }}
-	{{HTML::script('js/mustache.js')}}
+	{{ HTML::script('js/vendors/jquery-1.11.1.js') }}
+	{{ HTML::script('js/vendors/mustache.js') }}
+	
+
+	{{ HTML::script('js/app/init.js') }}
+
 	{{ HTML::script('js/Helpers.js') }}
-	{{ HTML::script('js/usuarios/UsuarioController.js') }}
+	
+	<!-- App Models -->
+	{{ HTML::script('js/app/models/usuario.js') }}
+
+	<!-- App Controllers -->
+	{{ HTML::script('js/app/controllers/usuario.js') }}
+
+	<!-- App Views -->
+	{{ HTML::script('js/app/views/usuario.js') }}
+
 	
 	@yield('scripts')
 	

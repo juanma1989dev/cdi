@@ -74,11 +74,6 @@
 	</template>
 
 {{HTML::link('/admin','Regresar al panel')}}
-
-@section('scripts')
-	{{HTML::script('js/usuarios/usuario.js')}}
-@stop
-
 @stop
 
 

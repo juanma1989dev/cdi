@@ -1,6 +1,5 @@
+(function( ){	
 
-
- 	
 	App.Helpers = function() {
 
 		this.render = function(template, elemRender) {
@@ -9,17 +8,29 @@
 			});
 		};
 
-		this.ajax = function(config, cb) {
-			var response = $.ajax({
-				type : config.type,
-				url  : App.Helpers.baseUrl() + config.url,
-				data : config.data,
+		this.ajax = function(conf) {
+
+			var self = this,
+				response;
+
+			var xhr = $.ajax({
+				type : conf.type,
+				url  : self.urlBase() + conf.url,
+				data : conf.data,
 				dataType: 'json',
-				success : cb
+				async: false
 			});
-		};
+
+			xhr.done(function(data){
+				response = data;
+			}).fail(function(error){
+				response = data;
+			});
+
+			return response;
+		}
 		
-		this.callback = function(data, textStatus, xhr){
+		this.callback2 = function(data, textStatus, xhr){
 			return data;
 		};
 
@@ -52,13 +63,10 @@
 			});
 		};
 
-		this.log = function (msg){
-			console.log(msg);
-		};
-
 		this.urlBase = function(){
 			return 'http://localhost/projects/cdi/public';
 		};
 
 	} 
 
+})();
