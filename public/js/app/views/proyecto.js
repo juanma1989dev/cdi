@@ -1,4 +1,4 @@
-(function(){
+(function( proyecto ){
 	
 	App.Views.Proyecto = function()
 	{
@@ -10,7 +10,7 @@
 
 		this.cargarMunicipios = function()
 		{
-			alert('si cambie');
+			proyecto.municipios();
 		}
 
 		this.cargarLocalidades = function()
@@ -24,4 +24,4 @@
 	var p = new App.Views.Proyecto();
 	p.events();
 
-})();
+})( new App.Controllers.Proyecto() );

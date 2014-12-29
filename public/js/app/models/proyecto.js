@@ -7,7 +7,7 @@
 			return h.ajax({
 				type : 'POST',
 				url : '/proyecto/cargarMunicipios',
-				data: estado
+				//data: estado
 			});
 		}
 
@@ -16,7 +16,7 @@
 			return h.ajax({
 				type : 'POST',
 				url : '/proyecto/cargarLocalidades',
-				data: municipio
+				//data: municipio
 			});
 		}
 

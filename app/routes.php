@@ -112,10 +112,10 @@ Route::post('/admin/regionoaxaca/{id}','RegionoaxController@update');
 Route::get('/admin/regionoaxaca/{id}/eliminar','RegionoaxController@delete');
 
 /* Rutas para el usuario Capturistra */
-Route::get('/capturista', 'CapturistaController@index');
+Route::get('/capturista', 'ProyectoController@index');
 
-Route::get('/capturista/capturaProyecto', 'CapturistaController@create');
-Route::post('/capturista/capturaProyecto', 'CapturistaController@crea');
+Route::get('/capturista/capturaProyecto', 'ProyectoController@create');
+Route::post('/capturista/capturaProyecto', 'ProyectoController@store');
 
 /* Rutas para el Super-Usuario */
 Route::get('/superUsuario', 'SuperUsuarioController@index');

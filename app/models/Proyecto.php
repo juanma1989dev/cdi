@@ -9,19 +9,6 @@
 			'carencias_id', 'dependencias_id', 'users_id'
 		);
 
-	    public static $rules =  array(
-			"create" => array(
-				'noExpediente' => 'required|integer',
-				'avanceFisico' => 'required|integer',
-				'avanceFinanciero' => 'required|integer',
-				'avanceFinanciero' => 'required|integer',
-				'noOficioSolicitud' => 'required|integer',
-				'status' => 'required',
-				'ubicacion' => 'required'
-			),
-			"edit"   => array()
-		
-		);
 
 		public function estados() {
 			return $this->belongsToMany('Estado', 'estado_proyecto', 'proyecto_id', 'estado_id');
