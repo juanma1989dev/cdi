@@ -1,8 +1,7 @@
 (function( helper, user ){
 
 	App.Views.User = function () 
-	{
-		
+	{		
 		this.events = function ()  
 		{
 			$('#formUserAdmin').on('submit',  { self: this}, this.createUser );
@@ -10,14 +9,14 @@
 			$("#agregarUsuario").on('click', this.addUser );
 			$('#cancelarUsuario').on('click', this.cancelAddUser );
 
-		};
+		}
 
 		this.addUser = function ( e )  
 		{
 			e.preventDefault();
 			$('#formUserAdmin').slideDown();
 			$('#agregarUsuario').hide();
-		};
+		}
 
 		this.cancelAddUser = function( e ) 
 		{
@@ -25,7 +24,7 @@
 			helper.cleanForm('#formUserAdmin');
 			$('#formUserAdmin').slideUp();
 			$('#agregarUsuario').show();
-		};
+		}
 
 		this.createUser = function( e ) 
 		{
@@ -42,7 +41,7 @@
 			{
 				$('.info').append('<li>'+ r.errors[Object.keys(r.errors)[0]] +'</li>').slideDown();	
 			}
-		};
+		}
 
 		this.addRowUser = function( data )
 		{

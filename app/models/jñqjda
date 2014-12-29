@@ -1,0 +1,16 @@
+
+			// switch ( $nameFunction ) 
+			// {
+			// 	case 'store':
+			// 		$data = $entity->store( $values );					
+			// 		break;
+
+			// 	case 'delete':
+			// 		$entity->delete( $values );
+			// 		$data = null; //checar esto
+			// 		break;
+
+			// 	default:
+			// 		return false;
+			// 		break;
+			// }

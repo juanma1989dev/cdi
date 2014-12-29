@@ -3,6 +3,7 @@
 use Illuminate\Routing\Redirector as Redirect;
 use Illuminate\Support\Facades\Response as ResponseBase;
 
+
 class ResponseData 
 {
 	protected  $redirect;
@@ -12,30 +13,11 @@ class ResponseData
 		$this->redirect = $redirect;
 	}
 
-	public function ajax( $entity, $nameFunction, $values = null, $dataResponse = null )
+	public function json( $entity, $nameFunction, $values = null, $dataResponse = null )
 	{
-
-
-
 		if ( \Request::ajax() ) 
 		{
-			$data = call_user_func_array(array($entity, $nameFunction), array( $values ));
-
-			// switch ( $nameFunction ) 
-			// {
-			// 	case 'store':
-			// 		$data = $entity->store( $values );					
-			// 		break;
-
-			// 	case 'delete':
-			// 		$entity->delete( $values );
-			// 		$data = null; //checar esto
-			// 		break;
-
-			// 	default:
-			// 		return false;
-			// 		break;
-			// }
+			$data = call_user_func_array(array($entity, $nameFunction),  $values );
 
 			if (  $entity->getSuccess() ) 
 			{

@@ -1,8 +1,8 @@
 $(document).on('ready', function(){
+				var h = new  App.Helpers();
 			$('#formEdo').on('submit', function(e){
 				e.preventDefault();
 
-				var h = new  App.Helpers();
 
 				var estado = {
 					id :    $('#id').val(),
@@ -68,7 +68,7 @@ $(document).on('ready', function(){
 							if( respuesta ){
 								$.ajax({
 									type:'GET',
-									url: hurlBase() +'/admin/estado/'+id+'/eliminar',
+									url: h.urlBase() +'/admin/estado/'+id+'/eliminar',
 									data : {},
 									dataType:'json',
 									success:function(data){

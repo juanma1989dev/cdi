@@ -24,7 +24,7 @@ class AdminUsuarioController extends BaseController
 
 	public function store() 
 	{
-		return ResponseData::ajax( $this->userRepo, 'store', Input::all(),  'usuario' );
+		return ResponseData::json( $this->userRepo, 'store', [ Input::all() ],  'usuario' );
 	} 
 
 	public function edit( $id )
@@ -35,12 +35,12 @@ class AdminUsuarioController extends BaseController
 
 	public function update( $id )
 	{	 
-		return ResponseData::html( $this->userRepo, 'update', '/users/admin', [$id, Input::all()] );						
+		return ResponseData::html( $this->userRepo, 'update', '/users/admin', [ $id, Input::all() ] );						
 	}
 
 	public function delete( $id )
 	{
-		return ResponseData::ajax( $this->userRepo, 'delete', $id);			
+		return ResponseData::json( $this->userRepo, 'delete', [ $id ]);			
 	}
 }
 

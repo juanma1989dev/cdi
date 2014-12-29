@@ -44,6 +44,7 @@
 
 	<!-- App Views -->
 	{{ HTML::script('js/app/views/usuario.js') }}
+	{{ HTML::script('js/app/views/proyecto.js') }}
 
 	
 	@yield('scripts')

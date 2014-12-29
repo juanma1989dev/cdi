@@ -2,7 +2,6 @@
 
 	App.Controllers.User = function () 
 	{
-
 		this.create = function ( u ) 
 		{
 			var a= user.store( u );
@@ -15,13 +14,13 @@
 			}
 
 			return a;
-		};
+		}
 
 		this.delete = function ( id ) 
 		{
 			var a = user.destroy( id )
 			return a;
-		};
+		}
 	}
 
 })( new App.Helpers(), new App.Models.User() );

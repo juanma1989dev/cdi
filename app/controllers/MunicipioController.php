@@ -19,7 +19,7 @@ class  MunicipioController extends BaseController
 
 	public function store()
 	{
-		return ResponseData::ajax( $this->municipioRepo, 'store', Input::all(),  'municipio' );			
+		return ResponseData::json( $this->municipioRepo, 'store', [ Input::all() ],  'municipio' );			
 	}
 
 	public function edit( $id )
@@ -35,11 +35,7 @@ class  MunicipioController extends BaseController
 
 	public function delete( $id )
 	{
-		$municipio=Municipio::find( $id );
-		if( $municipio->delete() )
-		{
-			return Response::json(array( 'status' => 'ok'));
-		}
+		return ResponseData::json( $this->municipioRepo, 'delete', [ $id ] );
 	}		
 }		
 

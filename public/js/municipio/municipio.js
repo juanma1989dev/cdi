@@ -1,8 +1,8 @@
 $(document).on('ready', function(){
+var h = new App.Helpers();
 	$('#formMuni').on('submit', function(e){
 		e.preventDefault();
 
-		var h = new App.Helpers();
 
 		var municipio = {
 			id:      $('#id').val(),
@@ -58,21 +58,21 @@ $(document).on('ready', function(){
 		$('#oculta').slideDown('fast');
 	});
 			
-
 	$('#tablaMunicipio').on('click', '.elimina', function(e){
 		e.preventDefault();
-
 		var id = $(this).attr('data-id'),
 			rowUser = $(this),
 			respuesta = confirm('Realmente decea eliminar este municipio');
 
 		if( respuesta ){
+			debugger
 			$.ajax({
 				type:'GET',
 				url: h.urlBase() +'/admin/municipio/'+id+'/eliminar',
 				data : {},
 				dataType:'json',
 				success:function(data){
+					debugger;
 					rowUser.closest('tr').remove();
 				},
 				error: function(error){
@@ -80,6 +80,19 @@ $(document).on('ready', function(){
 				}
 			});
 		}
+
+
+
+
+
+
+
+
+
+
+
+
+
 	});
 
 

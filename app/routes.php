@@ -124,7 +124,10 @@ Route::get('/superUsuario', 'SuperUsuarioController@index');
 
 
 
+/* Rutas para cargar selects del Fromulario de proyectos */
 
+Route::get('/proyecto/cargarMunicipios', 'ProyectoController@municipios');
+Route::get('/proyecto/cargarLocalidades', 'ProyectoController@localidades');
 
 
 

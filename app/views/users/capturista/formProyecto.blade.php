@@ -35,9 +35,12 @@
 			</p>
 			<p>
 				{{ Form::label('estado', 'Estado') }}
-				{{ Form::select(
-									'estado',
-									[null => 'Seleccione'],
+				{{ Form::select('estado',
+									[
+										null => 'Seleccione',
+										'uno' => 'Uno'
+
+									],
 									null
 								) 
 												}}
@@ -46,7 +49,10 @@
 				{{ Form::label('municipio', 'Municipio') }}
 				{{ Form::select(
 									'municipio',
-									[null => 'Seleccione'],
+									[
+										null => 'Seleccione',
+										'uno' => 'Uno'
+									],
 									null
 								) 
 												}}
@@ -359,28 +365,5 @@
 
 		{{ Form::submit('Guardar') }}
 	{{ Form::close() }}
-
-
-  	{{ HTML::script('js/jquery-1.11.1.js') }}
-  	<script>
-  		$(document).on('ready', function() {
-  			$('#multiphase').on('submit', function(e){
-  				e.preventDefault();
-  				var data = $('#multiphase').serialize();
-
-  				$.ajax({
-  					type : 'POST',
-  					url  : '/projects/cdi/public/capturista/capturaProyecto',
-  					data : data,
-  					dataType : 'json',
-  					success : function(data) {
-  						console.log(data);
-  					},
-  					error : function(error) {
-  						console.log(error);
-  					}
-  				});
-  			});
-  		});
   	</script>
 @stop
