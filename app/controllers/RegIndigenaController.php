@@ -1,23 +1,25 @@
 <?php 
-	class RegIndigenaController extends BaseController{
+	class RegIndigenaController extends BaseController
+	{
 
-		public function create(){
+		public function create()
+		{
 			$regindigenas= RegionIndigena::orderBy('id','DESC')->get();
 			return View::make('/users/admin/regionindigena/formRegIndigena',compact('regindigenas'));
 		}
 
-		public function store(){
+		public function store()
+		{
 
 				if(Request::ajax()){
 
 					$validator = Validator::make(					
-							Input::all()
-						,
+						Input::all(),
 						array(
 								'id'=> 'required',
 								'nombre'=> 'required',
 							)
-						);	
+					);	
 
 					if($validator->fails()){
 						return Response::json([
@@ -61,7 +63,7 @@
 
 
 				if ( $validator->fails() ) {
-				   return Redirect::to('users/admin/regionindigena'.$id)->withErrors($validator);
+				   return Redirect::to('/admin/regionindigena/'.$id)->withErrors($validator);
 					}	
 
 					$regindigena = RegionIndigena::find($id);

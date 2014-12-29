@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>CDI</title>
 	{{ HTML::style('css/normalize.css') }}
+	{{ HTML::style('css/ico-moon.css') }}
 	{{ HTML::style('css/style.css') }}
 	{{ HTML::style('css/responsive.css') }}
 

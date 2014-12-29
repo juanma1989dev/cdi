@@ -1,5 +1,7 @@
 $(document).on('ready', function(){
 
+	var h = new App.Helpers();
+
 		$('#formIndigena').on('submit', function(e){
 						e.preventDefault();
 
@@ -10,7 +12,7 @@ $(document).on('ready', function(){
 
 						$.ajax({
 							type : 'POST',
-							url : App.Helpers.urlBase + '/admin/regionindigena',
+							url : h.urlBase() + '/admin/regionindigena',
 							data: regindigena,
 							dataType: 'json',
 							success: function(regindigena){
@@ -24,7 +26,7 @@ $(document).on('ready', function(){
 									info.find('ul').append('<li>Agregado correctamente</li>');
 									info.slideDown();
 
-									regindigena.regindigena.urlEdit = App.Helpers.urlBase + '/admin/regionindigena/'+ regindigena.regindigena.id; 
+									regindigena.regindigena.urlEdit = h.urlBase() + '/admin/regionindigena/'+ regindigena.regindigena.id; 
 
 									var template=$('#filaRegindigena-template').html();
 									Mustache.parse(template);
@@ -65,7 +67,7 @@ $(document).on('ready', function(){
 								if( respuesta ){
 									$.ajax({
 										type:'GET',
-										url: App.Helpers.urlBase +'/admin/regionindigena/'+id+'/eliminar',
+										url: h.urlBase() +'/admin/regionindigena/'+id+'/eliminar',
 										data : {},
 										dataType:'json',
 										success:function(data){

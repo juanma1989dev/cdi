@@ -1,5 +1,14 @@
 <?php 
-	class AccionesController extends BaseController{
+	use CDI\Repositories\AccionRepo;
+
+	class AccionesController extends BaseController
+	{
+		protected $accionRepo;
+
+		public function __construct ( AccionRepo $accionRepo )
+		{
+			$this->accionRepo = $accionRepo; 
+		}
 
 		public function create(){
 			//$acciones = Accion::all();
@@ -8,38 +17,7 @@
 		}
 
 		public function store(){
-
-			if(Request::ajax()){
-
-				$validator = Validator::make(					
-						Input::all()
-					,
-					array(
-							'id'=> 'required',
-							'nombre'=> 'required',
-						)
-					);	
-
-				if($validator->fails()){
-					return Response::json([
-						'success'=>false,
-						'errors'=>$validator->errors()->toArray()]);
-				}else{	
-
-					$accion = new Accion;
-					$accion->id = Input::get('id');
-					$accion->nombre = Input::get('nombre');
-
-					if ($accion->save())
-					{
-						$accion = $accion->find(Input::get('id'));
-						return Response::json(array('success' => true, 'accion'=> $accion));
-					}
-
-
-				}
-				
-			}
+			$this->ajax( $this->accionRepo, 'store', Input::all(), 'accion' );
 		}
 
 		public function edit($id)

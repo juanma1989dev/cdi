@@ -1,44 +1,25 @@
 <?php
-	class LocalidadesController extends BaseController{
 
-		public function create(){
+	use CDI\Repositories\LocalidadRepo;
+
+	class LocalidadesController extends BaseController
+	{
+		protected $localidadRepo;
+
+		public function __construct ( LocalidadRepo $localidadRepo )
+		{
+			$this->localidadRepo = $localidadRepo;
+		}
+
+		public function create()
+		{
 			$localidades = Localidad::all();
 			return View::make('users/admin/localidad/formlocalidad', compact('localidades') );
 		}
 
 		public function store()
 		{
-			if(Request::ajax()){
-
-				$validator = Validator::make(					
-						Input::all()
-					,
-					array(
-							'id' 	=> 'required',
-							'nombre'=> 'required',
-							
-						)
-				);	
-
-				if($validator->fails()){
-					return Response::json([
-						'success'=>false,
-						'errors'=>$validator->errors()->toArray()]);
-				}else{	
-
-					$localidad = new Localidad(array(
-						'id'     => Input::get('id'),
-						'nombre' => Input::get('nombre'),
-					));
-
-					if ($localidad->save()) {
-						$localidad = Localidad::find(Input::get('id'));
-						$localidad->municipios()->attach(66); // Cambiar por el id de la lista de municipios
-						return Response::json(array('success' => true, 'localidad'=> $localidad));
-					}
-				}
-				
-			}
+			$this->ajax( $this->localidadRepo, 'store', Input::all(), 'localidad' );
 		}
 
 		public function edit($id)
@@ -87,10 +68,5 @@
 				}
 
 		}
-
-		
-	
-		
-
 	} 
  ?>

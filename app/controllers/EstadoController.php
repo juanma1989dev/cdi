@@ -1,6 +1,16 @@
 <?php
+	
+	use CDI\Repositories\EstadoRepo;
+
 	class  EstadoController extends BaseController
 	{
+		protected $estadoRepo;
+
+		public function __construct (EstadoRepo $estadoRepo) 
+		{
+			$this->estadoRepo = $estadoRepo; 
+		}
+
 		public function estado()
 		{
 			return View::make('users.admin.formEstado');
@@ -13,35 +23,7 @@
 
 		public function store()
 		{
-			if(Request::ajax()){
-
-				$validator = Validator::make(					
-						Input::all()
-					,
-					array(
-							'id'=> 'required',
-							'nombre'=> 'required',
-						)
-				);	
-
-				if($validator->fails()){
-					return Response::json([
-						'success'=>false,
-						'errors'=>$validator->errors()->toArray()]);
-				}else{	
-
-					$estado = Estado::create(array(
-						'id' => Input::get('id'),
-						'nombre' => Input::get('nombre'),
-					));
-
-					if ($estado)
-					{
-						return Response::json(array('success' => true, 'estado'=> $estado));
-					}
-				}
-				
-			}
+			parent::ajax( $this->estadoRepo, 'store',  Input::all(), 'estado' );
 		}
 
 
@@ -80,17 +62,15 @@
 			return 'no se guardo';
 		}
 
-		public function delete($id){
+		public function delete($id)
+		{
 			$estado=Estado::find($id);
-			if($estado->delete()){
+			if($estado->delete())
+			{
 				return Response::json(array( 'status' => 'ok'));
 			}
 
 		}
-
-
-
-
 	}
 
 ?>

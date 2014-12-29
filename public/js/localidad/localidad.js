@@ -1,5 +1,7 @@
 $(document).on('ready', function(){
 
+	var h =  new App.Helpers();
+
 $('#formLocalidades').on('submit', function(e){
 				e.preventDefault();
 
@@ -10,7 +12,7 @@ $('#formLocalidades').on('submit', function(e){
 
 				$.ajax({
 					type : 'POST',
-					url : App.Helpers.urlBase + '/admin/localidad',
+					url : h.urlBase() + '/admin/localidad',
 					data: localidad,
 					dataType: 'json',
 					success: function(localidad){
@@ -27,7 +29,7 @@ $('#formLocalidades').on('submit', function(e){
 							info.find('ul').append('<li>Agregado correctamente</li>');
 							info.slideDown();
 
-							localidad.localidad.urlEdit = App.Helpers.urlBase + '/users/admin/'+ localidad.localidad.id; 
+							localidad.localidad.urlEdit = h.urlBase() + '/users/admin/'+ localidad.localidad.id; 
 
 							var template=$('#filaLocalidad-template').html();
 							Mustache.parse(template);
@@ -71,7 +73,7 @@ $('#formLocalidades').on('submit', function(e){
 							if( respuesta ){
 								$.ajax({
 									type:'GET',
-									url: App.Helpers.urlBase +'/admin/localidad/'+id+'/eliminar',
+									url: h.urlBase() +'/admin/localidad/'+id+'/eliminar',
 									data : {},
 									dataType:'json',
 									success:function(data){

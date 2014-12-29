@@ -20,6 +20,8 @@
 <body>
 	<h1>Ejemplo de PDF</h1>
 	<img src="../public/images/depIMG.jpg" alt="Logo del CDI" id="cdi_img">
+	{{ HTML::image('/images/depIMG.jpg', 'name', array('id' => 'cdi_img')) }}
+
 	<?php  $i=0; ?>
 	<?php  for ($i; $i < 10; $i++):    ?>
 		<?php echo $i . '<br>';  ?>

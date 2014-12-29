@@ -1,22 +1,21 @@
 @extends('layouts/index')
 
-@section('main')
-		
-		<h1>Panel Administrador</h1>
-		<section id="main">
-			<p>{{HTML::link('users/admin','Usuarios')}}</p>
-			<p>{{HTML::link('/admin/municipio','Municipios')}}</p>
-			<p>{{HTML::link('/admin/estado','Estados')}}</p>
-			<p>{{HTML::link('/admin/localidad','Localidades')}}</p>
-			<p>{{HTML::link('/admin/acciones','Acciones')}}</p>
-			<p>{{HTML::link('/admin/carencias/','Carencias')}}</p>
-			<p>{{HTML::link('/admin/dependencias','Depedencias')}}</p>
-			<p>{{HTML::link('/admin/lenguas','Lenguas')}}</p>
-			<p>{{HTML::link('/admin/programas','Programas')}}</p>
-			<p>{{HTML::link('/admin/ubicaciones','Ubicaciones')}}</p>
-			<p>{{HTML::link('/admin/regionindigena','Region Indigena')}}</p>
-			<p>{{HTML::link('/admin/regionoaxaca','Region Oaxaa')}}</p>
-		</section>		
+@section('main')	
+	<section id="main">
+		<h1>Panel de Administración</h1>
+		{{ HTML::link('users/admin','Usuarios', array('class' => 'module')) }}
+		{{ HTML::link('/admin/municipio','Municipios', array('class' => 'module')) }}
+		{{ HTML::link('/admin/estado','Estados', array('class' => 'module')) }}
+		{{ HTML::link('/admin/localidad','Localidades', array('class' => 'module')) }}
+		{{ HTML::link('/admin/acciones','Acciones', array('class' => 'module')) }}
+		{{ HTML::link('/admin/carencias/','Carencias', array('class' => 'module')) }}
+		{{ HTML::link('/admin/dependencias','Depedencias', array('class' => 'module')) }}
+		{{ HTML::link('/admin/lenguas','Lenguas', array('class' => 'module')) }}
+		{{ HTML::link('/admin/programas','Programas', array('class' => 'module')) }}
+		{{ HTML::link('/admin/ubicaciones','Ubicaciones', array('class' => 'module')) }}
+		{{ HTML::link('/admin/regionindigena','Región Indigena', array('class' => 'module')) }}
+		{{ HTML::link('/admin/regionoaxaca','Región Oaxaca', array('class' => 'module')) }}
+	</section>		
 @stop
 
 

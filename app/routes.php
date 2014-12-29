@@ -13,14 +13,14 @@ Route::get('/', function() {
 Route::get('/recuperarPassword', 'RecuperarPasswordController@index');
 /* Login y Logout  */
 Route::post('/login', ['as' => 'login', 'uses' => 'LoginController@login']);
+//Route::post('/login', 'LoginController@login');
+Route::get('/capturista','CapturistaController@create');
 
 /*Rutas para el usuario Administrador*/
 Route::get('/admin', 'AdminController@index');
 Route::get('/admin/usuarios', 'UsuariosController@index');
 
 /*Rutas para Usuarios */
-Route::post('/login', 'LoginController@login');
-Route::get('/capturista','CapturistaController@create');
 Route::get('/admin','AdminUsuarioController@admin');
 Route::get('/users/admin','AdminUsuarioController@create');//creo usuarios
 Route::post('/users/admin','AdminUsuarioController@store');//agrego y muestro  usuarios
@@ -162,7 +162,11 @@ Route::get('/superUsuario', 'SuperUsuarioController@index');
 );       */
 
 Route::get('/pdf', function(){
-	$pdf = PDF::loadView('pdf');
+
+	$html = \View::make('pdf')->render();
+	$pdf = PDF::loadHTML($html); // Or	
+	//$pdf = PDF::loadView('Name View'); 	
 	$pdf->setPaper('A4');
+
     return $pdf->stream();
 });

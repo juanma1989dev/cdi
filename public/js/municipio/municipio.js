@@ -2,6 +2,8 @@ $(document).on('ready', function(){
 	$('#formMuni').on('submit', function(e){
 		e.preventDefault();
 
+		var h = new App.Helpers();
+
 		var municipio = {
 			id:      $('#id').val(),
 			nombre : $('#nombre').val(),
@@ -11,7 +13,7 @@ $(document).on('ready', function(){
 
 		$.ajax({
 			type : 'POST',
-			url : App.Helpers.urlBase + '/admin/municipio',
+			url : h.urlBase() + '/admin/municipio',
 			data: municipio,
 			dataType: 'json',
 			success: function(municipio){
@@ -24,7 +26,7 @@ $(document).on('ready', function(){
 				}else{
 					info.find('ul').append('<li>Agregado correctamente</li>');
 					info.slideDown();
-					municipio.municipio.urlEdit = App.Helpers.urlBase + '/users/admin/'+ municipio.municipio.id; 
+					municipio.municipio.urlEdit = h.urlBase() + '/users/admin/'+ municipio.municipio.id; 
 					var template=$('#filaMunicipio-template').html();
 					Mustache.parse(template);
 					var render = Mustache.render(template,municipio.municipio);
@@ -67,7 +69,7 @@ $(document).on('ready', function(){
 		if( respuesta ){
 			$.ajax({
 				type:'GET',
-				url: App.Helpers.urlBase +'/admin/municipio/'+id+'/eliminar',
+				url: h.urlBase() +'/admin/municipio/'+id+'/eliminar',
 				data : {},
 				dataType:'json',
 				success:function(data){

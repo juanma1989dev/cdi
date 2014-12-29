@@ -2,6 +2,8 @@ $(document).on('ready', function(){
 			$('#formEdo').on('submit', function(e){
 				e.preventDefault();
 
+				var h = new  App.Helpers();
+
 				var estado = {
 					id :    $('#id').val(),
 				    nombre: $('#nombre').val(),
@@ -9,7 +11,7 @@ $(document).on('ready', function(){
 
 				$.ajax({
 					type : 'POST',
-					url : App.Helpers.urlBase + '/admin/estado',
+					url : h.urlBase() + '/admin/estado',
 					data: estado,
 					dataType: 'json',
 					success: function(estado){
@@ -22,7 +24,7 @@ $(document).on('ready', function(){
 						}else{
 							info.find('ul').append('<li>Agregado correctamente</li>');
 							info.slideDown();
-							estado.estado.urlEdit = App.Helpers.urlBase + '/admin/estado'+ estado.estado.id; 
+							estado.estado.urlEdit = h.urlBase() + '/admin/estado'+ estado.estado.id; 
 							var template=$('#filaEstado-template').html();
 							Mustache.parse(template);
 							var render = Mustache.render(template,estado.estado);
@@ -66,7 +68,7 @@ $(document).on('ready', function(){
 							if( respuesta ){
 								$.ajax({
 									type:'GET',
-									url: App.Helpers.urlBase +'/admin/estado/'+id+'/eliminar',
+									url: hurlBase() +'/admin/estado/'+id+'/eliminar',
 									data : {},
 									dataType:'json',
 									success:function(data){

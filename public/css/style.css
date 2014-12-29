@@ -10,6 +10,19 @@
     font-style: normal;
 
 }
+
+@font-face {
+	font-family: 'icomoon';
+	src:url('ico-moon-fonts/icomoon.eot?-am9gp4');
+	src:url('ico-moon-fonts/icomoon.eot?#iefix-am9gp4') format('embedded-opentype'),
+		url('ico-moon-fonts/icomoon.woff?-am9gp4') format('woff'),
+		url('ico-moon-fonts/icomoon.ttf?-am9gp4') format('truetype'),
+		url('ico-moon-fonts/icomoon.svg?-am9gp4#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+
 body {
 	background-color: rgb(255,255, 255);
 	font-family: 'soberana';
@@ -32,8 +45,9 @@ h5{ font-size: 14px; }
 h6{ font-size: 10px; }
 #main {
 	display: block;
+	margin: 0 auto;
 	margin-bottom: 4em; 
-	width: 100%;
+	width: 94%;
 } 
 #dep, #login {
 	display: inline-block;
@@ -68,15 +82,34 @@ h6{ font-size: 10px; }
 	position: relative;
 	width: 250px;
 }
+#logoCDI, header h1 {
+		display: inline-block;
+		vertical-align: top;
+}
 .btn { 
 	background-color: rgb(27, 143, 91);
 	border: none;
 	color: rgb(250, 250, 250);
 	cursor: pointer;
 }
-#logoCDI, header h1 {
-		display: inline-block;
-		vertical-align: top;
+.module {
+	color: rgb(10, 10, 10);
+	border: 1px solid grey ;
+	display: inline-block;
+	margin: 0 0 10px 1em; 
+	padding: 10px;
+	text-decoration: none;
+	vertical-align: top;
+	width: 22%;
+}
+
+.module:hover:after {
+	color: green;
+	content: '\ea13';
+	display: inline-block;
+	float: right;
+	font-family: 'icomoon';
+	margin-top: .2em;
 }
 /* Botones - Inputs - ETC.. */
 
@@ -86,11 +119,6 @@ input {
 
 /* multiphase capturista*/
 
-
-
-#pas2 ,#pas3 ,#pas4,#pas5,#pas6 ,#pas7,#pas8{
-	display: none;
-}
 
 #formUserAdmin, #formMuni,
 #formEdo, #formLocalidades,

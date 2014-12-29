@@ -47,12 +47,16 @@
 	#logoCDI {
 		margin: 0 auto;
 		position: relative;
-		width: 75%;
+		width: 70%;
+
 	}
 } 
-@media all and (max-width: 320px) {  /*- Cambiar despues  -*/
+@media all and (max-width: 350px) {  /*- Cambiar despues  -*/  /* Importante !!!! */
 	
 	/* #dep { display: none; } */ /*--> revisar si tiene sentido esta regla  */
+	header h1 {
+		font-size: 20px;
+	}
 	#login { 
 		display: block;
 		margin: 0 auto; 
@@ -61,6 +65,6 @@
 	#logoCDI {
 		margin: 0 auto;
 		position: relative;
-		width: 80%;
+		width: 85%;
 	}
 }

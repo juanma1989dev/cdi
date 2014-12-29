@@ -1,5 +1,4 @@
 <?php
-
 return array(
 
 	/*
@@ -122,8 +121,14 @@ return array(
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
 
+		//Vendors
+
 		'Barryvdh\DomPDF\ServiceProvider',
 		'Way\Generators\GeneratorsServiceProvider',
+
+		//Customs
+
+		'ResponseData'      => 'CDI\Modules\ResponseDataServiceProvider',
 
 	),
 
@@ -192,7 +197,13 @@ return array(
 		'Validator'         => 'Illuminate\Support\Facades\Validator',
 		'View'              => 'Illuminate\Support\Facades\View',
 
-		'PDF'             => 'Barryvdh\DomPDF\Facade',
+		// Vendors
+
+		'PDF'               => 'Barryvdh\DomPDF\Facade',
+
+		//Cumstoms
+
+		'ResponseData'      => 'CDI\Modules\Response',
 
 	),
 
