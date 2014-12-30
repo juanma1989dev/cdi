@@ -30,7 +30,12 @@ abstract class BaseRepo
 		return $this->model->find( $id );
 	}
 
-	public function store ($data) 
+	public function findAll()
+	{
+		return $this->model->all();
+	}
+
+	public function store( $data ) 
 	{   			
 		$manager =  $this->manager;
 		$manager->setData( $data );
@@ -46,7 +51,7 @@ abstract class BaseRepo
 		return $manager->getErrors()->toArray();		
 	}
 
-	public function update ( $id, $data )
+	public function update( $id, $data )
 	{
 		$model= $this->findOne( $id );
 		

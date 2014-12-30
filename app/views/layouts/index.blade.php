@@ -38,9 +38,11 @@
 	
 	<!-- App Models -->
 	{{ HTML::script('js/app/models/usuario.js') }}
+	{{ HTML::script('js/app/models/proyecto.js') }}
 
 	<!-- App Controllers -->
 	{{ HTML::script('js/app/controllers/usuario.js') }}
+	{{ HTML::script('js/app/controllers/proyecto.js') }}
 
 	<!-- App Views -->
 	{{ HTML::script('js/app/views/usuario.js') }}

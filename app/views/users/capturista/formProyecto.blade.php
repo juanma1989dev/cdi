@@ -79,7 +79,8 @@
 				{{ Form::label('programa', 'Programa') }}
 				{{ Form::select(
 									'programa',
-									[null => 'Seleccione'],
+									[null => 'Seleccione',
+										'uno' => 'Uno'],
 									null
 								) 
 												}}
@@ -88,7 +89,9 @@
 				{{ Form::label('subPrograma', 'Sub-Programa') }}
 				{{ Form::select(
 									'subPrograma',
-									[null => 'Seleccione'],
+									[
+										null => 'Seleccione'
+									],
 									null
 								) 
 												}}

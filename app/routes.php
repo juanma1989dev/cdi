@@ -128,6 +128,7 @@ Route::get('/superUsuario', 'SuperUsuarioController@index');
 
 Route::get('/proyecto/cargarMunicipios', 'ProyectoController@municipios');
 Route::get('/proyecto/cargarLocalidades', 'ProyectoController@localidades');
+Route::get('/proyecto/cargarSubProgramas', 'ProyectoController@subProgramas');
 
 
 

@@ -20,11 +20,14 @@
 				response,
 				data;
 
+			var route = self.urlBase() + conf.url;
+
+
 			var data = conf.data == 'undenfine' ? {} : conf.data;
 
 			var xhr = $.ajax({
 				type : conf.type,
-				url  : self.urlBase() + conf.url,
+				url  : route,
 				data : data,
 				dataType: 'json',
 				async: false

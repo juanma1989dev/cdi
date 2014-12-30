@@ -5,17 +5,29 @@
 		this.events = function()
 		{
 			$('select#estado').on('change', this.cargarMunicipios );
-			$('select#municipio').on('change',  this.cargarLocalidades)
+			$('select#municipio').on('change',  this.cargarLocalidades);
+			$('select#programa').on('change',  this.cargarSubProgramas);
 		}
 
 		this.cargarMunicipios = function()
 		{
-			proyecto.municipios();
+			var a = proyecto.municipios();
+			$('select#municipio').empty();
+			$('select#municipio').append( a );
 		}
 
 		this.cargarLocalidades = function()
 		{
-			alert(' yo tambien cambie');
+			var a = proyecto.localidades();
+			$('select#localidad').empty();
+			$('select#localidad').append( a );
+		}
+
+		this.cargarSubProgramas =  function()
+		{
+			var a = proyecto.subProgramas();	
+			$('select#subPrograma').empty();		
+			$('select#subPrograma').append( a );
 		}
 
 	}
