@@ -8,8 +8,14 @@
 
 			if ( a.success )
 			{
+				var fullName = a.usuario.nombres +' '+ a.usuario.apellidoP + ' ' + a.usuario.apellidoM;
+				delete a.usuario.usuario;
+				delete a.usuario.apellidoP;
+				delete a.usuario.apellidoM;
+
 				a.usuario.urlEdit = helper.urlBase() + '/users/admin/'+ a.usuario.id; 
 				a.usuario.urlDelete = helper.urlBase() + '/users/admin/'+ a.usuario.id + '/eliminar'; 
+				a.usuario.fullName = fullName;
 				return 	a;
 			}
 

@@ -7,24 +7,24 @@
 		<ul class="info"></ul>
 		{{Form::open(['id'=>'formUserAdmin']) }}
 			<p>
-				{{Form::label('nombres','Ingresa tu nombre(s)')}}
-				{{Form::text('nombres')}}
+				{{Form::label('nombres','Nombre(s)')}}
+				{{Form::text('nombres', null, ['placeholder' => 'Nombre(s)'])}}
 			</p>
 			<p>
-				{{Form::label('apellidoM','Ingresa apellido materno')}}
-				{{Form::text('apellidoM')}}
+				{{Form::label('apellidoP','Apellido Paterno')}}
+				{{Form::text('apellidoP', null, ['placeholder' => 'Apellido Paterno'] )}}
 			</p>
 			<p>
-				{{Form::label('apellidoP','Ingresa apellido Paterno')}}
-				{{Form::text('apellidoP')}}
+				{{Form::label('apellidoM','Apellido Materno')}}
+				{{Form::text('apellidoM', null, ['placeholder' => 'Apellido Materno'])}}
 			</p>
 			<p>
-				{{Form::label('usuario','Ingresa tu usuario')}}
-				{{Form::text('usuario')}}
+				{{Form::label('usuario','Usuario')}}
+				{{Form::text('usuario', null, ['placeholder' => 'Usuario'])}}
 			</p>
 			<p>
-				{{Form::label('contrasenia','ingresa una contraseña')}}
-				{{Form::text('contrasenia')}}
+				{{Form::label('contrasenia','Contraseña')}}
+				{{Form::text('contrasenia', null, ['placeholder' => 'Contraseña'])}}
 			</p>
 			<p>
 				{{Form::label('nivel','Ingresa el nivel del usuario')}}
@@ -48,25 +48,19 @@
 
 		{{HTML::link('#','Agregar Usuario',['id'=>'agregarUsuario'])}}
 		
-		<table border="1" id="tablaUsuarios">
+		<table id="tablaUsuarios" class="tableAdmin">
 			<tr>
 				<td>Nombre</td>
-				<td>Apellido  Materno</td>
-				<td>Apellido Paterno</td>
-				<td>Usuario</td>
 				<td>Tipo Usuario</td>
 				<td>Editar</td>
 				<td>Eliminar</td>
 			</tr>
 			@foreach ($usuarios as $usuario) 
 			<tr>
-				<td>{{$usuario->nombres}}</td>
-				<td>{{$usuario->apellidoM}}</td>
-				<td>{{$usuario->apellidoP}}</td>
-				<td>{{$usuario->usuario}}</td>
-				<td>{{$usuario->nivel}}</td>
-				<td>{{HTML::link('/users/admin/'.$usuario->id, 'Editar')}}</td>
-				<td>{{HTML::link('/users/admin/'.$usuario->id.'/eliminar','Eliminar', ['class' => 'elimina','data-id'=> $usuario->id])}}</td>
+				<td>{{ $usuario->nombres }} {{ $usuario->apellidoP }} {{ $usuario->apellidoM }}</td>
+				<td>{{ ucfirst( $usuario->nivel ) }}</td>
+				<td>{{ HTML::link('/users/admin/'.$usuario->id, 'Editar') }}</td>
+				<td>{{ HTML::link('/users/admin/'.$usuario->id.'/eliminar','Eliminar', ['class' => 'elimina','data-id'=> $usuario->id]) }}</td>
 			</tr>			
 			@endforeach					
 		</table>

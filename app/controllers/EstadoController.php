@@ -23,7 +23,7 @@
 
 		public function store()
 		{
-			parent::ajax( $this->estadoRepo, 'store',  Input::all(), 'estado' );
+			return ResponseData::json( $this->estadoRepo, 'store',  [ Input::all() ], 'estado' );
 		}
 
 

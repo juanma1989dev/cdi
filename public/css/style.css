@@ -114,11 +114,11 @@ h6{ font-size: 10px; }
 }
 /* Botones - Inputs - ETC.. */
 
-input {
+input, select{
 	padding: 5px;
 }
 
-/* multiphase capturista*/
+/* Estilos admin */
 
 
 #formUserAdmin, #formMuni,
@@ -130,6 +130,18 @@ input {
 	display:none;
 }
 
+.tableAdmin{ 
+	border: 1px solid rgb(180, 180, 180);
+	margin: 0 auto;
+} 
+.tableAdmin td { padding: 5px 15px; }
+.tableAdmin tr:first-child {
+	background-color: #ddd;
+	color: rgb(20, 20, 30);
+}
+.tableAdmin tr{
+	border-bottom: 1px solid rgb(180, 180, 180) ;
+}
 form { width: 85%; margin:  0 auto;}
 form p label {
 	display: inline-block;

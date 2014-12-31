@@ -42,20 +42,17 @@
 
 			<h2>Visualizar Municipios</h2>
 	
-				<table border="2" id="tablaMunicipio">
-
-					@foreach($municipios as $municipio) 
-						<tr>
-							<td>{{$municipio->id}}</td>
-							<td>{{$municipio->nombre}}</td>
-							<td>{{$municipio->ccdi}}</td>
-							<td>{{$municipio->cnch}}</td>
-							<td>{{HTML::link('/admin/municipio/'.$municipio->id,'Editar')}}</td>
-							<td>{{HTML::link('admin/municipio/'.$municipio->id.'/eliminar','Eliminar', ['class' => 'elimina','data-id'=> $municipio->id])}}</td>
-						</tr>
-						
-					@endforeach
-							
+				<table id="tablaMunicipio">
+				@foreach($municipios as $municipio) 
+					<tr>
+						<td>{{$municipio->id}}</td>
+						<td>{{$municipio->nombre}}</td>
+						<td>{{$municipio->ccdi}}</td>
+						<td>{{$municipio->cnch}}</td>
+						<td>{{HTML::link('/admin/municipio/'.$municipio->id,'Editar')}}</td>
+						<td>{{HTML::link('admin/municipio/'.$municipio->id.'/eliminar','Eliminar', ['class' => 'elimina','data-id'=> $municipio->id])}}</td>
+					</tr>						
+				@endforeach							
 				</table>
 				<template id='filaMunicipio-template'>
 					<tr>
