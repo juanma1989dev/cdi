@@ -35,6 +35,12 @@ abstract class BaseRepo
 		return $this->model->all();
 	}
 
+	public function populate( $list )
+	{
+		$r = call_user_func_array(array( $this->model, 'lists'), $list);
+		return $r;
+	}
+
 	public function store( $data ) 
 	{   			
 		$manager =  $this->manager;

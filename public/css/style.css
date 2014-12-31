@@ -33,6 +33,7 @@ footer {
 }
 header { 
 	border-bottom: 1px solid rgba(14, 40, 220, 0.4) ;  
+	display: inline-block;
 	margin-bottom: 2em;
 }
 header h1 { vertical-align: middle; }
@@ -129,3 +130,26 @@ input {
 	display:none;
 }
 
+form { width: 85%; margin:  0 auto;}
+form p label {
+	display: inline-block;
+	text-align: center;
+	width: 45%;
+}
+form p input, textarea, select {
+	display: inline-block;
+	width: 48%;
+}
+
+::-webkit-input-placeholder { /* WebKit browsers */
+    color: transparent;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+	color: transparent;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+	color: transparent;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+	color: transparent;
+}

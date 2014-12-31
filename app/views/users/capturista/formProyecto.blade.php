@@ -18,7 +18,7 @@
 			</p>
 			<p>
 				{{ Form::label('noExpediente', 'No de Expediente') }}
-				{{ Form::text('noExpediente', null, ['diseabled']) }}
+				{{ Form::text('noExpediente', null, ['diseabled', 'placeholder' => 'No de Expediente']) }}
 			</p>
 			<p>
 				{{ Form::label('ubicacion', 'Ubiacion') }}
@@ -31,31 +31,15 @@
 			</p>
 			<p>		
 				{{ Form::label('noOficio', 'No de Oficio') }}
-				{{ Form::text('noOficio') }}	
+				{{ Form::text('noOficio', null, ['placeholder' => 'No de Oficio' ]) }}	
 			</p>
 			<p>
 				{{ Form::label('estado', 'Estado') }}
-				{{ Form::select('estado',
-									[
-										null => 'Seleccione',
-										'uno' => 'Uno'
-
-									],
-									null
-								) 
-												}}
+				{{ Form::select('estado', $estados, null) }}
 			</p>
 			<p>
 				{{ Form::label('municipio', 'Municipio') }}
-				{{ Form::select(
-									'municipio',
-									[
-										null => 'Seleccione',
-										'uno' => 'Uno'
-									],
-									null
-								) 
-												}}
+				{{ Form::select('municipio') }}
 			</p>
 			<p>
 				{{ Form::label('localidad', 'Localidad') }}
@@ -77,13 +61,7 @@
 			</p>
 			<p>
 				{{ Form::label('programa', 'Programa') }}
-				{{ Form::select(
-									'programa',
-									[null => 'Seleccione',
-										'uno' => 'Uno'],
-									null
-								) 
-												}}
+				{{ Form::select('programa', $programas,	null) }}
 			</p>
 			<p>
 				{{ Form::label('subPrograma', 'Sub-Programa') }}
@@ -98,53 +76,43 @@
 			</p>
 			<p>
 				{{ Form::label('carencia', 'Carencia') }}
-				{{ Form::select(
-									'carencia',
-									[null => 'Seleccione'],
-									null
-								) 
-												}}
+				{{ Form::select('carencia', $carencias ) }}
 			</p>
 			<p>
 				{{ Form::label('status', 'Estatus') }}
-				{{ Form::select(
-									'status',
-									[null => 'Seleccione'],
-									null
-								) 
-												}}
+				{{ Form::select('status', $status, null	) }}
 			</p>
 			<p>
 				{{ Form::label('municipioCNDH', 'Municipio CNDH') }}
-				{{ Form::text('municipioCNDH') }}
+				{{ Form::text('municipioCNDH', null, ['placeholder' => 'Municipio CNDH' ]) }}
 			</p>
 		 	<p>
 		 		{{ Form::label('centroCoordinador', 'CCDI') }}
-		 		{{ Form::text('centroCoordinador') }}
+		 		{{ Form::text('centroCoordinador', null, ['placeholder' => 'CCDI' ]) }}
 		 	</p>
 		 	<p>
 		 		{{ Form::label('lengua', 'Lengua') }}
-		 		{{ Form::text('lengua') }}
+		 		{{ Form::text('lengua', null, ['placeholder' => 'Lengua' ]) }}
 		 	</p>
 		 	<p>
 		 		{{ Form::label('regionIndigena',  'Región Indigena') }}
-		 		{{ Form::text('regionIndigena') }}
+		 		{{ Form::text('regionIndigena', null, ['placeholder' => 'Region Indigena' ]) }}
 		 	</p>
 		 	<p>
 		 		{{ Form::label('region', 'Región') }}
-		 		{{ Form::text('region') }}
+		 		{{ Form::text('region', null, ['placeholder' => 'Region' ]) }}
 		 	</p>
 		 	<p>
 		 		{{ Form::label('microRegion', 'Microregión') }}
-		 		{{ Form::text('microRegion') }}
+		 		{{ Form::text('microRegion', null, ['placeholder' => 'Microregion' ]) }}
 	 		</p>		
 	 		<p>
 	 			{{ Form::label('federal', 'Federal') }}
-	 			{{ Form::text('federal') }}
+	 			{{ Form::text('federal', null, ['placeholder' => 'Federal' ]) }}
 	 		</p>
 	 		<p>
 				 {{ Form::label('local', 'Local') }}
-				 {{ Form::text('local') }}
+				 {{ Form::text('local', null, ['placeholder' => 'Local' ]) }}
 			</p>
 			{{ Form::button('Siguiente', ['btn1']) }}
 		</fieldset>
@@ -154,12 +122,7 @@
 			<legend> Acciones</legend>									
 			<p>
 				{{ Form::label('accion',  'Acción') }}
-				{{ Form::select(	
-									'accion',
-									[null => 'Seleccione'],
-									null
-								) 
-				}}
+				{{ Form::select('accion', $acciones ) }}
 
 			</p>
 
@@ -169,7 +132,7 @@
 				<legend>CDI:</legend>
 				<p>
 				   	{{ Form::label('cantidadCDI', 'Cantidad') }}
-				   	{{ Form::text('cantidadCDI') }}  	
+				   	{{ Form::text('cantidadCDI', null, ['placeholder' => 'Cantidad' ]) }}  	
 				</p>
 				<p>
 				   	{{ Form::label('unidadMedidaCDI',  'Unidad de Medida') }}
@@ -186,7 +149,7 @@
 			<legend>CNCH:</legend>
 			    <p> 
 			    	{{ Form::label('catidadCNCH', 'Cantidad' ) }}  
-			    	{{ Form::text('catidadCNCH') }}	
+			    	{{ Form::text('catidadCNCH', null, ['placeholder' => 'Cantidad' ]) }}	
 			    </p>
 			    <p>
 			    	<label>Unidad de Medida:</label>	    	
@@ -282,7 +245,9 @@
 		    	<p>
 		    		<input type="text" name="" value="">
 		    	</p>
+		    	<p>
 		   			<input type="text" name="" value="">
+		   		</p>	
 		   		<p>
 		    		<input type="text" name="" value="">
 		    	</p>
@@ -309,20 +274,25 @@
 
 		   	<fieldset>
 		    	<legend>Accion:</legend>
-		    	<label>Cantidad:</label><input type="text" name="" value="">		    						   
+		    	<p>	
+		    		<label>Cantidad:</label>
+		    		<input type="text" name="" value="">
+		    	</p>
 		  	</fieldset>
 
 		  	<fieldset>
 		    	<legend>Beneficiarios:</legend>
-		    	<label>Hombres:</label><input type="text" name="" value="">
-		    	<label>Mujeres:</label><input type="text" name="" value="">
-		    	<label>Total:</label><input type="text" name="" value="0" value="disables">					   
+		    	<p><label>Hombres:</label><input type="text" name="" value=""></p>
+		    	<p><label>Mujeres:</label><input type="text" name="" value=""></p>
+		    	<p><label>Total:</label><input type="text" name="" value="0" disabled="true"></p>					
 		  	</fieldset>
 
 		   	<fieldset>
 		    	<legend>Avance %:</legend>
-		   		<label for="">Financiero:</label>
-		    	<input type="text" name="avanceFinanciero" value="">				   
+		   		<p>
+		   			<label for="">Financiero:</label>
+		    		<input type="text" name="avanceFinanciero" value="">
+		    	</p>
 		  	</fieldset>
 			
 			<button id="btn6">sigueinte</button>
@@ -344,7 +314,7 @@
 				<label>Curp:</label>
 				<input type="text" name="curp" value="" placeholder="">	
 			</p>
-			</p>
+			<p>
 				<label>Correo:</label>
 				<input type="text" name="correo" value="" placeholder="">
 			</p>

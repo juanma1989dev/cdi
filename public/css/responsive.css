@@ -34,7 +34,22 @@
 		width: 75%;
 	}
 }
+
+
 @media all and (max-width: 480px) {
+
+	::-webkit-input-placeholder { /* WebKit browsers */
+	  color: rgba(10, 10, 10, 0.7);
+	}
+	:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+	  color: rgba(10, 10, 10, 0.7);
+	}
+	::-moz-placeholder { /* Mozilla Firefox 19+ */
+	  color: rgba(10, 10, 10, 0.7);
+	}
+	:-ms-input-placeholder { /* Internet Explorer 10+ */
+	  color: rgba(10, 10, 10, 0.7);
+	}
 	#dep { display: none; }
 	#login { 
 		display: block;
@@ -50,6 +65,17 @@
 		width: 70%;
 
 	}
+	header { height: auto; }
+	form p label {
+		display: none;
+	}
+	form p input, textarea, select {
+		display: inline-block;
+		color: red;
+		width: 85%;
+		color: 
+	}
+
 } 
 @media all and (max-width: 350px) {  /*- Cambiar despues  -*/  /* Importante !!!! */
 	

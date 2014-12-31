@@ -1,9 +1,9 @@
 <?php 
+
 use CDI\Repositories\ProyectoRepo;
 use CDI\Repositories\MunicipioRepo;
 use CDI\Repositories\LocalidadRepo;
 use CDI\Repositories\SubProgramaRepo;
-
 
 class ProyectoController extends BaseController {
 
@@ -13,14 +13,15 @@ class ProyectoController extends BaseController {
 	protected $subProgramaRepo;
 
 	public function __construct( 
-		ProyectoRepo $proyectoRepo, MunicipioRepo $municipioRepo, LocalidadRepo $localidadRepo,
-		SubProgramaRepo $subProgramaRepo
+		ProyectoRepo $proyectoRepo, MunicipioRepo $municipioRepo,
+		LocalidadRepo $localidadRepo, SubProgramaRepo $subProgramaRepo
+
 	)
 	{
-		$this->proyectoRepo  = $proyectoRepo;
-		$this->municipioRepo    = $municipioRepo;
-		$this->localidadRepo = $localidadRepo;
-		$this->subProgramaRepo =  $subProgramaRepo;
+		$this->proyectoRepo    = $proyectoRepo;
+		$this->municipioRepo   = $municipioRepo;
+		$this->localidadRepo   = $localidadRepo; 
+		$this->subProgramaRepo = $subProgramaRepo;
 	}
 
 	public function index() 
@@ -30,12 +31,12 @@ class ProyectoController extends BaseController {
 
 	public function create()
 	{
-		return View::make('users/capturista/formProyecto');
+		$selects = $this->proyectoRepo->poulateSelects();
+		return View::make('users/capturista/formProyecto', $selects);
 	}
 
 	public function store()
 	{
-
 		extract(Input::all());
 
 		$estado = Estado::find(1); // Cambiar por la variable del estado 
