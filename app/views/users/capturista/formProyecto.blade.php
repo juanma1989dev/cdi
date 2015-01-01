@@ -22,12 +22,7 @@
 			</p>
 			<p>
 				{{ Form::label('ubicacion', 'Ubiacion') }}
-				{{ Form::select(
-									'ubicacion',
-									[null => 'Seleccione'],
-									null
-								) 
-												}}
+				{{ Form::select('ubicacion', $ubicacion, null) }}
 			</p>
 			<p>		
 				{{ Form::label('noOficio', 'No de Oficio') }}
@@ -52,12 +47,7 @@
 			</p>
 			<p>
 				{{ Form::label('dependencia', 'Dependecia') }}
-				{{ Form::select(
-									'dependendia',
-									[null => 'Seleccione'],
-									null
-								) 
-												}}
+				{{ Form::select('dependencia', $dependencias, null) }}
 			</p>
 			<p>
 				{{ Form::label('programa', 'Programa') }}
@@ -136,28 +126,19 @@
 				</p>
 				<p>
 				   	{{ Form::label('unidadMedidaCDI',  'Unidad de Medida') }}
-					{{ Form::select(	
-										'unidadMedidaCDI',
-										[null => 'Seleccione'],
-										null
-									) 
-					}}						   
+					{{ Form::select('unidadMedidaCDI', $unidadMedida, null) }}						   
 				</p>
 			</fieldset>
 
 			<fieldset>
 			<legend>CNCH:</legend>
 			    <p> 
-			    	{{ Form::label('catidadCNCH', 'Cantidad' ) }}  
-			    	{{ Form::text('catidadCNCH', null, ['placeholder' => 'Cantidad' ]) }}	
+			    	{{ Form::label('cantidadCNCH', 'Cantidad' ) }}  
+			    	{{ Form::text('cantidadCNCH', null, ['placeholder' => 'Cantidad' ]) }}	
 			    </p>
 			    <p>
-			    	<label>Unidad de Medida:</label>	    	
-			    	<select name="">
-		 				<option value="1">Seleccione...</option>
-		 				<option value="2">Uno...</option>
-		 			</select>   
-		 			{{ Form::label('') }}
+		 			{{ Form::label('cantidadCNCH', 'Unidad de Medida') }}
+			    	{{ Form::select('cantidadCNCH', $unidadMedida, null) }} 
 			    </p>
 			  </fieldset>
 			  {{ Form::button('Siguiente', ['id' => 'btn2']) }}
