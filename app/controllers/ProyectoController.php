@@ -5,6 +5,9 @@ use CDI\Repositories\MunicipioRepo;
 use CDI\Repositories\LocalidadRepo;
 use CDI\Repositories\SubProgramaRepo;
 
+
+use CDI\Repositories\AvanceAccionRepo;
+
 class ProyectoController extends BaseController {
 
 	protected $proyectoRepo;
@@ -36,7 +39,20 @@ class ProyectoController extends BaseController {
 
 	public function store()
 	{
-		return ResponseData::json( $this->proyectoRepo, 'store', [ Input::all() ], 'proyecto');	
+		//obteniendo los datos del formulario
+		$data = Input::all();
+
+		//creadondo el avanceaccion
+		$var = new AvanceAccionRepo();
+		$accion = $var->store( $data );
+
+		$data['avanceaccion_id'] = $accion->id;
+
+		//creando el proyecto
+		$proyecto = $this->proyectoRepo->store( $data );
+
+
+		dd( $proyecto );
 	}
 
 	public function municipios()

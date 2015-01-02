@@ -11,7 +11,8 @@ class ProyectoManager extends BaseManagers
 			'avanceFinanciero' => 'required|integer',
 			'noOficioSolicitud' => 'required|integer',
 			'status' => 'required',
-			'ubicacion' => 'required'
+			'ubicacion' => 'required',
+			'avanceaccion_id' => 'required'
 		);
 	}
 }

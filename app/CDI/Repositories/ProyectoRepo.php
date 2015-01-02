@@ -21,7 +21,7 @@ class ProyectoRepo extends BaseRepo
 		$this->accionRepo      = $accionRepo;
 	}
 	
-	public function getModel ()
+	public function getModel()
 	{
 		return new Proyecto;
 	}

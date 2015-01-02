@@ -1,7 +1,7 @@
 <?php namespace CDI\Repositories;
 
-use CDI\Managers\UserManager;
-use CDI\Managers\MunicipioManager;
+//use CDI\Managers\UserManager;
+//use CDI\Managers\MunicipioManager;
 
 abstract class BaseRepo 
 {
@@ -43,7 +43,8 @@ abstract class BaseRepo
 
 	public function store( $data ) 
 	{   			
-		$manager =  $this->manager;
+		$manager =  $this->getManager();
+
 		$manager->setData( $data );
 		
 		$entity = $manager->save();

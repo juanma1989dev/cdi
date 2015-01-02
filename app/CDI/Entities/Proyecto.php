@@ -20,8 +20,6 @@ class Proyecto extends \Eloquent
 		return $this->hasOne();
 	}
 
-		
-
 }
 
 ?>

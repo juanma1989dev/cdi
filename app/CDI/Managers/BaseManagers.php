@@ -43,6 +43,7 @@ abstract class BaseManagers
 			return false;
 		}
 
+
 		$this->entity->fill( $this->data );
 		$this->entity->save();
 
