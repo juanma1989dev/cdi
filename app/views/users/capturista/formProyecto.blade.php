@@ -10,8 +10,6 @@
 		@include('partials/proyecto/pasoTres')
 		@include('partials/proyecto/pasoCuatro')
 		@include('partials/proyecto/pasoCinco')
-		@include('partials/proyecto/pasoSeis')
-		@include('partials/proyecto/pasoSiete')
 		{{ Form::submit('Guardar') }}
 	{{ Form::close() }}
 
