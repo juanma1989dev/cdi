@@ -1,5 +1,7 @@
 $(document).on('ready', function(){
 
+	var h  = new App.Helpers();
+
 		$('#formLengua').on('submit', function(e){
 						e.preventDefault();
 
@@ -10,7 +12,7 @@ $(document).on('ready', function(){
 
 						$.ajax({
 							type : 'POST',
-							url : App.Helpers.urlBase + '/admin/lenguas',
+							url : h.urlBase() + '/admin/lenguas',
 							data: lengua,
 							dataType: 'json',
 							success: function(lengua){
@@ -24,7 +26,7 @@ $(document).on('ready', function(){
 									info.find('ul').append('<li>Agregado correctamente</li>');
 									info.slideDown();
 
-									lengua.lengua.urlEdit = App.Helpers.urlBase + '/admin/carencias/'+ lengua.lengua.id; 
+									lengua.lengua.urlEdit = h.urlBase() + '/admin/carencias/'+ lengua.lengua.id; 
 
 									var template=$('#filaLengua-template').html();
 									Mustache.parse(template);
@@ -65,7 +67,7 @@ $(document).on('ready', function(){
 								if( respuesta ){
 									$.ajax({
 										type:'GET',
-										url: App.Helpers.urlBase +'/admin/lenguas/'+id+'/eliminar',
+										url: h.urlBase() +'/admin/lenguas/'+id+'/eliminar',
 										data : {},
 										dataType:'json',
 										success:function(data){

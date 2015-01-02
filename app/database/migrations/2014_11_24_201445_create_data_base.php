@@ -62,7 +62,7 @@ class CreateDataBase extends Migration {
 		Schema::create('avanceAccion', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('cantidad');
+			$table->integer('avanceCantidad');
 			$table->integer('beneficiariosH');
 			$table->integer('beneficiariosM');
 			$table->timestamps();
@@ -126,23 +126,44 @@ class CreateDataBase extends Migration {
 		Schema::create('inversionEjercida', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->double('federal', 15, 8);
-			$table->double('estatal', 15, 8);
-			$table->double('municipal', 15, 8);
-			$table->double('otros', 15, 8);			
+			$table->double('federalE', 15, 8);
+			$table->double('estatalE', 15, 8);
+			$table->double('municipalE', 15, 8);
+			$table->double('otrosE', 15, 8);			
 			$table->timestamps();
 		});
 		//t14
 		Schema::create('inversionProgramada', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->double('federal', 15, 8);
-			$table->double('estatal', 15, 8);
-			$table->double('municipal', 15, 8);
-			$table->double('otros', 15, 8);			
+			$table->double('federalP', 15, 8);
+			$table->double('estatalP', 15, 8);
+			$table->double('municipalP', 15, 8);
+			$table->double('otrosP', 15, 8);			
 			$table->timestamps();
 		});
 		//t15
+
+		Schema::create('datosGenerales', function(Blueprint $table)
+		{
+			$table->increments('id');
+			$table->string('nombreBeneficiario', 150);
+			$table->string('rfc', 20);
+			$table->string('curp', 20);
+			$table->string('correo', 100);
+			$table->integer('telefono');
+			$table->integer('celular');
+			$table->boolean('viable');
+			$table->text('descripcion');
+			$table->string('evento', 100);
+			$table->date('fechaEvento');
+			$table->string('lugarEvento', 100);
+
+			//$table->integer('proyectos_id')->unsigned();
+
+			//$table->foreign('proyectos_id')->references('id')->on('proyectos');
+			$table->timestamps();
+		});
 		Schema::create('proyectos', function(Blueprint $table)
 		{				
 			$table->increments('id');
@@ -164,6 +185,8 @@ class CreateDataBase extends Migration {
 			$table->integer('dependencias_id');
 			$table->integer('users_id')->unsigned();
 
+			$table->integer('datosgenerales_id')->unsigned(); //revisar 
+
 
 			$table->foreign('avanceaccion_id')->references('id')->on('avanceaccion');
 			$table->foreign('accionprogramada_id')->references('id')->on('accionprogramada');
@@ -175,6 +198,9 @@ class CreateDataBase extends Migration {
 			$table->foreign('carencias_id')->references('id')->on('carencias');
 			$table->foreign('dependencias_id')->references('id')->on('dependencias');
 			$table->foreign('users_id')->references('id')->on('users');
+
+			$table->foreign('datosgenerales_id')->references('id')->on('datosgenerales'); //revisar
+
 			
 
 			$table->timestamps();
@@ -273,26 +299,7 @@ class CreateDataBase extends Migration {
 			$table->timestamps();
 		});
 		//t26
-		Schema::create('datosGenerales', function(Blueprint $table)
-		{
-			$table->increments('id');
-			$table->string('nombreBeneficiario', 150);
-			$table->string('rfc', 20);
-			$table->string('curp', 20);
-			$table->string('correo', 100);
-			$table->integer('telefono');
-			$table->integer('celular');
-			$table->boolean('viable');
-			$table->text('descripcion');
-			$table->string('evento', 100);
-			$table->date('fechaEvento');
-			$table->string('lugarEvento', 100);
-
-			$table->integer('proyectos_id')->unsigned();
-
-			$table->foreign('proyectos_id')->references('id')->on('proyectos');
-			$table->timestamps();
-		});
+		
 		//t27
 		Schema::create('proyecto_estado_localidad_estado', function(Blueprint $table)
 		{

@@ -1,5 +1,7 @@
 $(document).on('ready', function(){
 
+	var h = new App.Helpers(); 
+
 		$('#formRegOax').on('submit', function(e){
 						e.preventDefault();
 
@@ -10,7 +12,7 @@ $(document).on('ready', function(){
 
 						$.ajax({
 							type : 'POST',
-							url : App.Helpers.urlBase + '/admin/regionoaxaca',
+							url : h.urlBase() + '/admin/regionoaxaca',
 							data: regoaxaqueña,
 							dataType: 'json',
 							success: function(regoaxaqueña){
@@ -24,7 +26,7 @@ $(document).on('ready', function(){
 									info.find('ul').append('<li>Agregado correctamente</li>');
 									info.slideDown();
 
-									regoaxaqueña.regoaxaqueña.urlEdit = App.Helpers.urlBase + '/admin/regionoaxaca/'+ regoaxaqueña.regoaxaqueña.id; 
+									regoaxaqueña.regoaxaqueña.urlEdit = h.urlBase() + '/admin/regionoaxaca/'+ regoaxaqueña.regoaxaqueña.id; 
 
 									var template=$('#filaRegindigena-template').html();
 									Mustache.parse(template);
@@ -65,7 +67,7 @@ $(document).on('ready', function(){
 								if( respuesta ){
 									$.ajax({
 										type:'GET',
-										url: App.Helpers.urlBase +'/admin/regionoaxaca/'+id+'/eliminar',
+										url: h.urlBase() +'/admin/regionoaxaca/'+id+'/eliminar',
 										data : {},
 										dataType:'json',
 										success:function(data){

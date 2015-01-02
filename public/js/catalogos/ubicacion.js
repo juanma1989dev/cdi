@@ -1,5 +1,7 @@
 $(document).on('ready', function(){
 
+	var h =  new App.Helpers(); 
+
 		$('#formUbicaciones').on('submit', function(e){
 						e.preventDefault();
 
@@ -10,7 +12,7 @@ $(document).on('ready', function(){
 
 						$.ajax({
 							type : 'POST',
-							url : App.Helpers.urlBase + '/admin/ubicaciones',
+							url : h.urlBase() + '/admin/ubicaciones',
 							data: ubicacion,
 							dataType: 'json',
 							success: function(ubicacion){
@@ -24,7 +26,7 @@ $(document).on('ready', function(){
 									info.find('ul').append('<li>Agregado correctamente</li>');
 									info.slideDown();
 
-									ubicacion.ubicacion.urlEdit = App.Helpers.urlBase + '/admin/ubicaciones/'+ ubicacion.ubicacion.id; 
+									ubicacion.ubicacion.urlEdit = h.urlBase() + '/admin/ubicaciones/'+ ubicacion.ubicacion.id; 
 
 									var template=$('#filaUbicacion-template').html();
 									Mustache.parse(template);
@@ -65,7 +67,7 @@ $(document).on('ready', function(){
 								if( respuesta ){
 									$.ajax({
 										type:'GET',
-										url: App.Helpers.urlBase +'/admin/ubicaciones/'+id+'/eliminar',
+										url: h.urlBase() +'/admin/ubicaciones/'+id+'/eliminar',
 										data : {},
 										dataType:'json',
 										success:function(data){

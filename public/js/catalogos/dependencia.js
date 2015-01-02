@@ -1,4 +1,5 @@
 $(document).on('ready', function(){
+	var h = new App.Helpers();
 
 	$('#formDependencia').on('submit', function(e){
 		e.preventDefault();
@@ -10,7 +11,7 @@ $(document).on('ready', function(){
 
 		$.ajax({
 			type : 'POST',
-			url : App.Helpers.urlBase + '/admin/dependencias',
+			url : h.urlBase() + '/admin/dependencias',
 			data: dependencia,
 			dataType: 'json',
 			success: function(dependencia){
@@ -24,7 +25,7 @@ $(document).on('ready', function(){
 					info.find('ul').append('<li>Agregado correctamente</li>');
 					info.slideDown();
 
-					dependencia.dependencia.urlEdit = App.Helpers.urlBase + '/admin/carencias/'+ dependencia.dependencia.id; 
+					dependencia.dependencia.urlEdit = h.urlBase() + '/admin/carencias/'+ dependencia.dependencia.id; 
 
 					var template=$('#filaDependencia-template').html();
 					Mustache.parse(template);
@@ -66,7 +67,7 @@ $(document).on('ready', function(){
 			{
 				$.ajax({
 					type:'GET',
-					url: App.Helpers.urlBase +'/admin/dependencias/'+id+'/eliminar',
+					url: h.urlBase() +'/admin/dependencias/'+id+'/eliminar',
 					data : {},
 					dataType:'json',
 					success:function(data){

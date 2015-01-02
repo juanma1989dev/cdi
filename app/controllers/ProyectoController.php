@@ -10,6 +10,7 @@ use CDI\Repositories\AvanceAccionRepo;
 use CDI\Repositories\AccionProgramadaRepo;
 use CDI\Repositories\InversionProgramadaRepo;
 use CDI\Repositories\InversionEjercidaRepo;
+use CDI\Repositories\DatosGeneralesRepo;
 
 class ProyectoController extends BaseController {
 
@@ -74,8 +75,11 @@ class ProyectoController extends BaseController {
 		// carecnias id  < esto viene del combo carencias>
 		$data['carencias_id'] = 90;
 
-		// carecnias id  < esto viene del combo carencias>
+		// carecnias id  < esto viene del combo dependencias>
 		$data['dependencias_id'] = 1;
+
+		// datos generales   < esto del formulario del ultimo paso>
+		$data['datosgenerales_id'] = 1;
 
 		$data['avanceaccion_id'] = $accion->id;
 		$data['accionprogramada_id'] = $accionPro->id;
@@ -83,7 +87,7 @@ class ProyectoController extends BaseController {
 		$data['inversionejercida_id']   = $inversionEjercida->id;
 
 
-		$data['users_id']   = 12;  //usuario logueado
+		$data['users_id']   = 1;  //usuario logueado
 
 
 		

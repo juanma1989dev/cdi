@@ -19,7 +19,7 @@
 
 		public function store()
 		{
-			$this->ajax( $this->accionRepo, 'store', Input::all(), 'carencia');
+			return ResponseData::json( $this->accionRepo, 'store', [ Input::all() ], 'carencia');
 		}
 
 		public function edit($id)

@@ -1,5 +1,7 @@
 $(document).on('ready', function(){
 
+	var h = new App.Helpers();
+
 		$('#formPrograma').on('submit', function(e){
 						e.preventDefault();
 
@@ -10,7 +12,7 @@ $(document).on('ready', function(){
 
 						$.ajax({
 							type : 'POST',
-							url : App.Helpers.urlBase + '/admin/programas',
+							url : h.urlBase() + '/admin/programas',
 							data: programa,
 							dataType: 'json',
 							success: function(programa){
@@ -24,7 +26,7 @@ $(document).on('ready', function(){
 									info.find('ul').append('<li>Agregado correctamente</li>');
 									info.slideDown();
 
-									programa.programa.urlEdit = App.Helpers.urlBase + '/admin/programas/'+ programa.programa.id; 
+									programa.programa.urlEdit = h.urlBase() + '/admin/programas/'+ programa.programa.id; 
 
 									var template=$('#filaPrograma-template').html();
 									Mustache.parse(template);
@@ -65,7 +67,7 @@ $(document).on('ready', function(){
 								if( respuesta ){
 									$.ajax({
 										type:'GET',
-										url: App.Helpers.urlBase +'/admin/programas/'+id+'/eliminar',
+										url: h.urlBase() +'/admin/programas/'+id+'/eliminar',
 										data : {},
 										dataType:'json',
 										success:function(data){
