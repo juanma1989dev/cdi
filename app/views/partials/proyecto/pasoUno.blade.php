@@ -38,8 +38,8 @@
 		{{ Form::select('dependencia', $dependencias, null) }}
 	</p>
 	<p>
-		{{ Form::label('programa', 'Programa') }}
-		{{ Form::select('programa', $programas,	null) }}
+		{{ Form::label('programas_id', 'Programa') }}
+		{{ Form::select('programa_id', $programas,	null) }}
 	</p>
 	<p>
 		{{ Form::label('subPrograma', 'Sub-Programa') }}

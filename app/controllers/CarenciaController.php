@@ -11,7 +11,8 @@
 			$this->accionRepo = $accionRepo;
 		}
 
-		public function create(){
+		public function create()
+		{
 			$carencias=Carencia::orderBy('id','DESC')->get();
 			return View::make('/users/admin/carencias/formCarencia',compact('carencias'));
 		}
@@ -56,7 +57,7 @@
 				return 'no se guardo';
 			}
 
-		}
+		
 		public function delete($id)
 		{
 			$carencia=Carencia::find($id);

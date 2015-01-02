@@ -4,40 +4,57 @@
    	<fieldset>
 	    <legend>Programada:</legend>
 	    <p>
-		    <label>Estatal:</label>
-		    <input type="text" name="" value="">
+		    {{ Form::label('federal', 'Federal') }}
+		    {{ Form::text('federal') }}
 	    </p>
 	    <p>
-		    <label>Municipal:</label>
-		    <input type="text" name="" value="">
+		   	{{ Form::label('estatal', 'Estatal') }}
+			{{ Form::text('estatal') }}
 	    </p>
 	    <p>
-		    <label>Otros:</label>
-		    <input type="text" name="" value="">
+		    {{ Form::label('municipal', 'Municipal') }}
+		    {{ Form::text('municipal') }}
 	    </p>
 	    <p>
-		    <label>Total:</label>
-		    <input type="text" name="" value="">
+		    {{ Form::label('otros', 'Otros') }}
+		    {{ Form::text('otros') }}
+	    </p>
+	    <p>
+		    {{ Form::label('totalProgramado', 'Total') }}
+		    {{ Form::text('totalProgramado') }}
 	    </p>						   
 	</fieldset>
 
 	<fieldset>
-		<legend>Ejecutada:</legend>
-		<p>
-	    	<label>Estatal:</label>
-	    	<input type="text" name="" value="">
-    	</p>
-    	<p>
-	    	<label>Municipal:</label>
-	    	<input type="text" name="" value="">
-    	</p>
-    	<p>
-	    	<label>Otros:</label><input type="text" name="" value="">
-    	</p>
-    	<p>
-	    	<label>Total:</label><input type="text" name="" value="">	
-    	</p>			   
-  	</fieldset>
+	    <legend>Ejercida:</legend>
+	    <p>
+		    {{ Form::label('federalE', 'Federal') }}
+		    {{ Form::text('federalE') }}
+	    </p>
+	    <p>
+		   	{{ Form::label('estatalE', 'Estatal') }}
+			{{ Form::text('estatalE') }}
+	    </p>
+	    <p>
+		    {{ Form::label('municipalE', 'Municipal') }}
+		    {{ Form::text('municipalE') }}
+	    </p>
+	    <p>
+		    {{ Form::label('otrosE', 'Otros') }}
+		    {{ Form::text('otrosE') }}
+	    </p>
+	    <p>
+		    {{ Form::label('totalProgramadoE', 'Total') }}
+		    {{ Form::text('totalProgramadoE') }}
+	    </p>						   
+	</fieldset>
+	
+
+
+
+
+
+
 
   	<fieldset>
     	<legend>Nombre:</legend>
