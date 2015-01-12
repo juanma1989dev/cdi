@@ -21,7 +21,8 @@ class ProyectoManager extends BaseManagers
 			'ubicaciones_id' =>'required',
 			'carencias_id'   => 'required',
 			'dependencias_id' => 'required',
-			'users_id' => 'required'
+			'users_id' => 'required', 
+			'datosgenerales_id' => 'required'
 		);
 	}
 }

@@ -15,7 +15,7 @@ class DatosGeneralesManager extends BaseManagers
 			'descripcion' => 'required',
 			'evento' => 'required',
 			'fechaEvento' => 'required',
-			'lugarEvento'
+			'lugarEvento' => 'required'
 		);
 	}
 }

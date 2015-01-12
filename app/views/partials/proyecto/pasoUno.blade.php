@@ -10,7 +10,7 @@
 	</p>
 	<p>
 		{{ Form::label('ubicacion', 'Ubiacion') }}
-		{{ Form::select('ubicacion', $ubicacion, null) }}
+		{{ Form::select('ubicacion', $ubicacion, null, ['placeholder' => 'io']) }}
 	</p>
 	<p>		
 		{{ Form::label('noOficioSolicitud', 'No de Oficio') }}
@@ -22,7 +22,7 @@
 	</p>
 	<p>
 		{{ Form::label('municipio', 'Municipio') }}
-		{{ Form::select('municipio') }}
+		{{ Form::select('municipio', array(), null, ['placeholder' => 'Selecciona']) }}
 	</p>
 	<p>
 		{{ Form::label('localidad', 'Localidad') }}
@@ -39,7 +39,7 @@
 	</p>
 	<p>
 		{{ Form::label('programas_id', 'Programa') }}
-		{{ Form::select('programa_id', $programas,	null) }}
+		{{ Form::select('programas_id', $programas,	null) }}
 	</p>
 	<p>
 		{{ Form::label('subPrograma', 'Sub-Programa') }}

@@ -4,24 +4,24 @@
    	<fieldset>
 	    <legend>Programada:</legend>
 	    <p>
-		    {{ Form::label('federal', 'Federal') }}
-		    {{ Form::text('federal') }}
+		    {{ Form::label('federalP', 'Federal') }}
+		    {{ Form::text('federalP') }}
 	    </p>
 	    <p>
-		   	{{ Form::label('estatal', 'Estatal') }}
-			{{ Form::text('estatal') }}
+		   	{{ Form::label('estatalP', 'Estatal') }}
+			{{ Form::text('estatalP') }}
 	    </p>
 	    <p>
-		    {{ Form::label('municipal', 'Municipal') }}
-		    {{ Form::text('municipal') }}
+		    {{ Form::label('municipalP', 'Municipal') }}
+		    {{ Form::text('municipalP') }}
 	    </p>
 	    <p>
-		    {{ Form::label('otros', 'Otros') }}
-		    {{ Form::text('otros') }}
+		    {{ Form::label('otrosP', 'Otros') }}
+		    {{ Form::text('otrosP') }}
 	    </p>
 	    <p>
 		    {{ Form::label('totalProgramado', 'Total') }}
-		    {{ Form::text('totalProgramado') }}
+		    {{ Form::text('totalProgramado', null, ['disabled']) }}
 	    </p>						   
 	</fieldset>
 
@@ -44,8 +44,8 @@
 		    {{ Form::text('otrosE') }}
 	    </p>
 	    <p>
-		    {{ Form::label('totalProgramadoE', 'Total') }}
-		    {{ Form::text('totalProgramadoE') }}
+		    {{ Form::label('totalEjercido', 'Total') }}
+		    {{ Form::text('totalEjercido') }}
 	    </p>						   
 	</fieldset>
 	

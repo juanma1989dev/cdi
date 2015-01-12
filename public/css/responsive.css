@@ -16,7 +16,27 @@
 		width: 45%;
 	}	
 }
+
 @media all and (max-width: 768px) {
+	::-webkit-input-placeholder { /* WebKit browsers */
+	  color: rgba(10, 10, 10, 0.7);
+	}
+	:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+	  color: rgba(10, 10, 10, 0.7);
+	}
+	::-moz-placeholder { /* Mozilla Firefox 19+ */
+	  color: rgba(10, 10, 10, 0.7);
+	}
+	:-ms-input-placeholder { /* Internet Explorer 10+ */
+	  color: rgba(10, 10, 10, 0.7);
+	}
+	form p label {
+		display: none;
+	}
+	form p input, textarea, select {
+		display: inline-block;
+		width: 85%;
+	}
 	header { 
 		display: block;
 		text-align: center;
@@ -35,21 +55,8 @@
 	}
 }
 
-
 @media all and (max-width: 480px) {
-
-	::-webkit-input-placeholder { /* WebKit browsers */
-	  color: rgba(10, 10, 10, 0.7);
-	}
-	:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-	  color: rgba(10, 10, 10, 0.7);
-	}
-	::-moz-placeholder { /* Mozilla Firefox 19+ */
-	  color: rgba(10, 10, 10, 0.7);
-	}
-	:-ms-input-placeholder { /* Internet Explorer 10+ */
-	  color: rgba(10, 10, 10, 0.7);
-	}
+	
 	#dep { display: none; }
 	#login { 
 		display: block;
@@ -66,15 +73,8 @@
 
 	}
 	header { height: auto; }
-	form p label {
-		display: none;
-	}
-	form p input, textarea, select {
-		display: inline-block;
-		width: 85%;
-	}
+}
 
-} 
 @media all and (max-width: 350px) {  /*- Cambiar despues  -*/  /* Importante !!!! */
 	
 	/* #dep { display: none; } */ /*--> revisar si tiene sentido esta regla  */

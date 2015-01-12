@@ -2,28 +2,28 @@
 	<legend>Observaciones:</legend>
 
 	<p>
-		<label>Nombre del Beneficiario:</label>
-		<input type="text" name="nombreBeneficiario">				
+		{{ Form::label('nombreBeneficiario', 'Nombre del Beneficiario') }}				
+		{{ Form::text('nombreBeneficiario', null,  ['placeholder' => 'Nombre del Beneficiario']) }}				
 	</p>
 	<p>
-		<label>RFC:</label>
-		<input type="text" name="rfc">	
+		{{ Form::label('rfc', 'RFC') }}				
+		{{ Form::text('rfc', null,  ['placeholder' => 'RFC']) }}
 	</p>
 	<p>			
-		<label>Curp:</label>
-		<input type="text" name="curp" value="" placeholder="">	
+		{{ Form::label('curp', 'CURP') }}				
+		{{ Form::text('curp', null,  ['placeholder' => 'CURP']) }}
 	</p>
 	<p>
-		<label>Correo:</label>
-		<input type="text" name="correo" value="" placeholder="">
+		{{ Form::label('correo', 'Correo') }}				
+		{{ Form::text('correo', null,  ['placeholder' => 'Correo']) }}
 	</p>
 	<p>
-		<label>Tel.Local:</label>
-		<input type="text" name="telefono" value="" placeholder="">		
+		{{ Form::label('telefono', 'Telefono') }}				
+		{{ Form::text('telefono', null,  ['placeholder' => 'Telefono']) }}	
 	</p>	
 	<p>
-		<label>Celular:</label>
-		<input type="text" name="celular" value="" placeholder="">	
+		{{ Form::label('celular', 'Celular') }}				
+		{{ Form::text('celular', null,  ['placeholder' => 'Celular']) }}
 	</p>
 	<p>
 		{{ Form::label('viable', 'Considera el proyecto exitoso') }}
@@ -33,4 +33,21 @@
 		<label>Imagenes</label>
 		<input type="file" name="" value="Subir...">
 	</p>
+	<p>
+		{{ Form::label('descripcion', 'Descripción') }}
+		{{ Form::textarea('descripcion', null, ['placeholder' => 'Descripción']) }}
+	</p>
+	<p>
+		{{ Form::label('evento', 'Eveto') }}
+		{{ Form::text('evento', null, ['placeholder' => 'Evento..'] ) }}
+	</p>
+	<p>
+		{{ Form::label('fechaEvento', 'Fecha del Eveto') }}
+		{{ Form::input('date', 'fechaEvento', null, ['placeholder' => 'DD/MM/YYYY']) }}
+	</p>
+	<p>
+		{{ Form::label('lugarEvento', 'Lugar del Evento') }}
+		{{ Form::text('lugarEvento', null, ['placeholder' => 'Lugar del Evento'] ) }}
+	</p>
+
 </fieldset>

@@ -4,10 +4,10 @@ class InversionProgramadaManager extends BaseManagers
 {
 	public function getRules(){
 		return array(
-			'federal'   => 'required',
-			'estatal'   => 'required',
-			'municipal' => 'required',
-			'otros'     => 'required'
+			'federalP'   => 'required',
+			'estatalP'   => 'required',
+			'municipalP' => 'required',
+			'otrosP'     => 'required'
 		);
 	}
 } 

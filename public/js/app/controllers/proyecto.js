@@ -2,7 +2,7 @@
 
 	App.Controllers.Proyecto = function()
 	{
-		var options = "";
+		var options = '';
 
 		this.municipios = function()
 		{

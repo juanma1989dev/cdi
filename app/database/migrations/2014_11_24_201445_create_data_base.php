@@ -36,8 +36,8 @@ class CreateDataBase extends Migration {
 		Schema::create('accionProgramada', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->date('inicioEjeucion');
-			$table->date('finEjeucion');
+			$table->date('inicioEjecucion');
+			$table->date('finEjecucion');
 			$table->integer('metaCNCH');
 			$table->integer('metaCDI');
 			$table->integer('mujeresBeneficiadas');

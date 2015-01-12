@@ -26,7 +26,7 @@ Route::get('/capturista', 'ProyectoController@index');
 Route::get('/capturista/capturaProyecto', 'ProyectoController@create');
 Route::post('/capturista/capturaProyecto', 'ProyectoController@store');
 
-Route::get('/capturista','CapturistaController@create');
+//Route::get('/capturista','CapturistaController@create');
 
 
 
@@ -81,10 +81,14 @@ Route::get('/proyecto/cargarSubProgramas', 'ProyectoController@subProgramas');
 
 Route::get('/pdf', function(){
 
-	$html = \View::make('pdf')->render();
-	$pdf = PDF::loadHTML($html); // Or	
-	//$pdf = PDF::loadView('Name View'); 	
-	$pdf->setPaper('A4');
+	$proyectos = CDI\Entities\Proyecto::all();
+
+	$html = View::make('pdf', compact('proyectos') )->render();
+
+
+	$pdf = PDF::loadHTML($html); // Or
+	//$pdf = PDF::loadView('pdf', compact('proyectos')); 	
+	$pdf->setPaper('A2')->setOrientation('landscape');
 
     return $pdf->stream();
 });

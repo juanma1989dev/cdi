@@ -10,7 +10,10 @@ use CDI\Repositories\AvanceAccionRepo;
 use CDI\Repositories\AccionProgramadaRepo;
 use CDI\Repositories\InversionProgramadaRepo;
 use CDI\Repositories\InversionEjercidaRepo;
-use CDI\Repositories\DatosGeneralesRepo;
+use CDI\Repositories\DatosGeneralesRepo; //
+
+
+use CDI\Entities\Proyecto;
 
 class ProyectoController extends BaseController {
 
@@ -27,12 +30,17 @@ class ProyectoController extends BaseController {
 		$this->proyectoRepo    = $proyectoRepo;
 		$this->municipioRepo   = $municipioRepo;
 		$this->localidadRepo   = $localidadRepo; 
-		$this->subProgramaRepo = $subProgramaRepo;
+		$this->subProgramaRepo = $subProgramaRepo; 
 	}
 
 	public function index() 
 	{
-		return View::make('users/capturista/index');
+		//$proyectos = $this->proyectoRepo->findAll()->first();
+
+		$proyectos = Proyecto::where('created_at', 'LIKE', '%2016%')->get();
+
+
+		return View::make('users/capturista/index', compact('proyectos') );
 	}
 
 	public function create()
@@ -46,13 +54,17 @@ class ProyectoController extends BaseController {
 		//obteniendo los datos del formulario
 		$data = Input::all();
 
+		$data['avanceCantidad'] = 10; // NO LO ENCONTRE EN EL FORMULARIO SI VA ????
 		//creando el avanceaccion
 		$var = new AvanceAccionRepo();
 		$accion = $var->store( $data );
 
+
+
 		//creando el avanceaccion
 		$var2 = new AccionProgramadaRepo();
 		$accionPro = $var2->store( $data );
+
 
 		//creando el inversionprogramada
 		$var3 = new InversionProgramadaRepo();
@@ -62,41 +74,42 @@ class ProyectoController extends BaseController {
 		$var4 = new InversionEjercidaRepo();
 		$inversionEjercida = $var4->store( $data ); 
 
+		// datos generales   < esto del formulario del ultimo paso>		
+		$var5 =  new DatosGeneralesRepo();
+		$datosGenerales = $var5->store( $data );
+
 		//aspectos  < esto debe venir del formulario>
 		$data['aspectos_id'] = 1;
 
-
 		// programas id  < esto viene del combo programas>
-		$data['programas_id'] = 12;
+		//$data['programas_id'] = 12;
 
 		// unicaciones id  < esto viene del combo ubicaciones>
-		$data['ubicaciones_id'] = 1;
+		$data['ubicaciones_id'] =  $data['ubicacion'];
 
 		// carecnias id  < esto viene del combo carencias>
-		$data['carencias_id'] = 90;
+		$data['carencias_id'] = $data['carencia'];
 
 		// carecnias id  < esto viene del combo dependencias>
-		$data['dependencias_id'] = 1;
+		$data['dependencias_id'] = $data['dependencia'];
 
-		// datos generales   < esto del formulario del ultimo paso>
-		$data['datosgenerales_id'] = 1;
 
 		$data['avanceaccion_id'] = $accion->id;
 		$data['accionprogramada_id'] = $accionPro->id;
 		$data['inversionprogramada_id'] = $inversionProgramada->id;
 		$data['inversionejercida_id']   = $inversionEjercida->id;
+		$data['datosgenerales_id'] = $datosGenerales->id;
+
 
 
 		$data['users_id']   = 1;  //usuario logueado
 
-
-		
+		$data['avanceFinanciero'] = 78; // NO LO ENCONTRE EN EL FORMULARIO AGREGAR
 
 		//creando el proyecto
 		$proyecto = $this->proyectoRepo->store( $data );
 
-
-		dd( $proyecto );
+		if( $proyecto ){ return Redirect::to('/capturista'); } 
 	}
 
 	public function municipios()

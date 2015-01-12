@@ -8,8 +8,8 @@ class AccionProgramadaManager extends BaseManagers
 			'finEjecucion'    => 'required',
 			'metaCNCH'        => 'required',
 			'metaCDI'         => 'required',
-			'mujeresBeneficiadas' => 'required',
-			'hombresBeneficiados' => 'required',
+			'beneficiariosM' => 'required',
+			'beneficiariosH' => 'required',
 			'acciones_id'     => 'required'
 		);
 	}

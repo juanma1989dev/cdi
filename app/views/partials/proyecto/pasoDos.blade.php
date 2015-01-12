@@ -47,16 +47,16 @@
 	<fieldset>
 		<legend>Beneficiarios:</legend>
 	    <p>
-		   	{{ Form::label('mujeresBeneficiadas', 'Mujeres') }}
-		   	{{ Form::text('mujeresBeneficiadas') }}
+		   	{{ Form::label('beneficiariosM', 'Mujeres') }}
+		   	{{ Form::text('beneficiariosM', null, ['placeholder' => 'Mujeres']) }}
 		</p>
 		<p>
-		   	{{ Form::label('hombresBeneficiados', 'Hombres') }}
-		   	{{ Form::text('hombresBeneficiados') }}
+		   	{{ Form::label('beneficiariosH', 'Hombres') }}
+		   	{{ Form::text('beneficiariosH', null, ['placeholder' => 'Hombres']) }}
 		</p>
 		<p>
 		   	{{ Form::label('totalBeneficiados', 'Total') }}
-		   	{{ Form::text('totalBeneficiados') }}
+		   	{{ Form::text('totalBeneficiados', null, ['placeholder' => 'Total', 'disabled']) }}
 		</p>			
 		{{ Form::button('Siguiente', ['id' => 'btn4']) }}
 	</fieldset>

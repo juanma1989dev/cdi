@@ -25,11 +25,6 @@ class User extends \Eloquent implements UserInterface, RemindableInterface {
 	protected $fillable = array('id', 'nombres', 'apellidoP', 'apellidoM', 'usuario','contrasenia', 'nivel', 'full_name');
 
 
-	public function getFullNameAttribute($value)
-	{
-		return $this->nombres .' '. $this->apellidoP . ' ' . $this->apellidoM;
-	}
-
 }
 
 ?>

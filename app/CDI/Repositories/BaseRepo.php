@@ -5,10 +5,14 @@
 
 abstract class BaseRepo 
 {
+	abstract public function getModel();
+
+	abstract public function getManager();
 
 	protected $model;
 	protected $manager;
 	protected $success = false;
+
 
 	public function __construct () 
 	{
@@ -16,9 +20,6 @@ abstract class BaseRepo
 		$this->model   = $this->getModel();
 	}
 
-	abstract public function getModel ();
-
-	abstract public function getManager();
 
 	public function getSuccess ()
 	{
@@ -32,7 +33,7 @@ abstract class BaseRepo
 
 	public function findAll()
 	{
-		return $this->model->all();
+		return $this->getModel()->all();
 	}
 
 	public function populate( $list )
