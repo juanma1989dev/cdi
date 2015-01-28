@@ -8,7 +8,8 @@
 	},
 	"require": {
 		"laravel/framework": "4.2.*",
-		"barryvdh/laravel-dompdf": "*"
+		"barryvdh/laravel-dompdf": "*",
+		"thujohn/pdf": "~1.0"
 	},
 	"autoload": {
 		"psr-4":{

@@ -29,6 +29,25 @@
 	</script>
 	
 	{{ HTML::script('js/vendors/jquery-1.11.1.js') }}
+	{{ HTML::script('js/vendors/modernizr.js') }}
+
+
+	<script>
+
+		Modernizr.load({
+			test: Modernizr.inputtypes.date,
+				nope: ['https://code.jquery.com/ui/1.10.4/jquery-ui.min.js', 
+				'http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/themes/ui-lightness/jquery-ui.css'
+				],
+				complete: function () {
+				    $('input[type=date]').datepicker({
+				    	dateFormat: 'dd/mm/yy'
+				    }).attr('placeholder', 'dd/mm/yy'); 
+			  }
+		});
+	</script>
+
+
 	{{ HTML::script('js/vendors/mustache.js') }}
 	
 

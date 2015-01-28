@@ -125,6 +125,7 @@ return array(
 
 		'Barryvdh\DomPDF\ServiceProvider',
 		'Way\Generators\GeneratorsServiceProvider',
+		'Thujohn\Pdf\PdfServiceProvider',
 
 		//Customs
 
@@ -200,6 +201,7 @@ return array(
 		// Vendors
 
 		'PDF'               => 'Barryvdh\DomPDF\Facade',
+		'PDF2'              => 'Thujohn\Pdf\PdfFacade',
 
 		//Cumstoms
 

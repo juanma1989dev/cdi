@@ -79,16 +79,27 @@ Route::get('/proyecto/cargarSubProgramas', 'ProyectoController@subProgramas');
 //}
 );       */
 
-Route::get('/pdf', function(){
+
+Route::get('/pdf', function(){	
 
 	$proyectos = CDI\Entities\Proyecto::all();
 
-	$html = View::make('pdf', compact('proyectos') )->render();
+	$v = View::make('pdf', compact('proyectos'));
 
 
-	$pdf = PDF::loadHTML($html); // Or
-	//$pdf = PDF::loadView('pdf', compact('proyectos')); 	
-	$pdf->setPaper('A2')->setOrientation('landscape');
+	$a = PDF2::load($v, 'A2', 'landscape')->show();
 
-    return $pdf->stream();
+	return $a;
+
+});
+
+
+Route::get('/pdf2', function(){	
+
+	$v = View::make('pdf2');
+
+
+	$a = PDF2::load($v, 'A4', 'landscape')->show();
+
+	return $a;
 });
